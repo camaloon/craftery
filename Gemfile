@@ -49,6 +49,7 @@ gem 'kaminari'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'slim'
+gem 'slim-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
     :github => 'anjlab/bootstrap-rails'
 
