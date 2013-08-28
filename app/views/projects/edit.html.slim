@@ -1,2 +1,11 @@
-h1 Projects#edit
-p Find me in app/views/projects/edit.html.slim
+h1 Edit Project
+
+= simple_form_for @project do |f|
+  = f.input :name, required: true
+  = f.button :submit
+
+p
+  =' link_to "Delete", project_path(@project.id), :method => :delete
+p
+  =' link_to "Back to details", project_path(@project.id)
+  =' link_to "Back to Projects list", projects_path

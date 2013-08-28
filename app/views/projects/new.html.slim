@@ -1,2 +1,8 @@
-h1 Projects#new
-p Find me in app/views/projects/new.html.slim
+h1 New Project
+
+= simple_form_for @project do |f|
+  = f.input :name, required: true
+  = f.button :submit
+
+p
+  = link_to "Back to Projects list", projects_path

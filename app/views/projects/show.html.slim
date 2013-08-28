@@ -6,3 +6,10 @@ p
 p
   strong> Name:
   = @project.name
+
+p
+  =' link_to "Edit", edit_project_path(@project.id)
+  =' link_to "Delete", project_path(@project.id), :method => :delete
+
+p
+  = link_to "Back to Projects list", projects_path

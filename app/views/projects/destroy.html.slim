@@ -1,2 +1,13 @@
-h1 Projects#destroy
-p Find me in app/views/projects/destroy.html.slim
+h1 Project destroyed!
+
+p It was defined as follows:
+
+p
+  strong> Id:
+  = @project.id
+p
+  strong> Name:
+  = @project.name
+
+p
+  = link_to "Back to Projects list", projects_path

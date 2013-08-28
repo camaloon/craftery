@@ -1,2 +1,15 @@
-h1 Projects#update
-p Find me in app/views/projects/update.html.slim
+h1 Your Project #{@project.name} has been successfully updated!
+
+p
+  strong> Id:
+  = @project.id
+p
+  strong> Name:
+  = @project.name
+
+p
+  =' link_to "Edit again", edit_project_path(@project.id)
+  =' link_to "Delete", project_path(@project.id), :method => :delete
+
+p
+  = link_to "Back to Projects list", projects_path
