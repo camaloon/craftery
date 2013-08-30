@@ -1,11 +1,21 @@
-h1 Your Project #{@project.name} has been successfully updated!
+- if @project.errors.any?
 
-p
-  strong> Id:
-  = @project.id
-p
-  strong> Name:
-  = @project.name
+  h1 Found #{pluralize(@project.errors.count, "error")} updating your new Project
+
+  ul
+    - @project.errors.full_messages.each do |message|
+      li = message
+
+- else
+
+  h1 Your Project #{@project.name} has been successfully updated!
+
+  p
+    strong> Id:
+    = @project.id
+  p
+    strong> Name:
+    = @project.name
 
 p
   =' link_to "Edit again", edit_project_path(@project.id)

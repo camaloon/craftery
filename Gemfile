@@ -56,4 +56,5 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'turnip'
+  gem 'annotate', ">=2.5.0"
 end
