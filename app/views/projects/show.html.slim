@@ -9,7 +9,7 @@ p
 
 p
   =' link_to "Edit", edit_project_path(@project.id)
-  =' link_to "Delete", project_path(@project.id), :method => :delete
+  =' link_to "Delete", project_path(@project.id), :method => :delete, data: { confirm: "Are you sure?"}
 
 p
   = link_to "Back to Projects list", projects_path

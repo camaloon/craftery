@@ -7,7 +7,7 @@
   .col-md-4
 
     h1.pull-right
-      = link_to project_path(@project.id), :method => :delete, class: 'btn btn-default right-pulled-button' do
+      = link_to project_path(@project.id), :method => :delete, class: 'btn btn-default right-pulled-button', data: { confirm: "Are you sure?"} do
         span.glyphicon.glyphicon-trash>
         | Delete
 
@@ -15,7 +15,7 @@
 
   .col-md-12
 
-    == render :partial => 'form'
+    = render "form"
 
     p
       = link_to "Back to list", root_path
