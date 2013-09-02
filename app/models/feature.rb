@@ -15,4 +15,6 @@
 class Feature < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   belongs_to :project
+
+  validates_presence_of :owner, :project, :name
 end

@@ -13,5 +13,5 @@
 
 class User < ActiveRecord::Base
   belongs_to :role
-  has_many :user, inverse_of: :owner
+  has_many :features, foreign_key: :owner_id
 end

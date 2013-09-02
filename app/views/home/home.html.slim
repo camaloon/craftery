@@ -15,9 +15,9 @@
         .panel.panel-default
           .panel-heading
             h3.panel-title
-              = link_to project.name.capitalize, project_path(project.id)
+              = link_to project.name.capitalize, project_path(project)
               .pull-right.right-pulled-button
-                = link_to project_path(project.id), :method => :delete do
+                = link_to project_path(project.id), method: :delete do
                   span.glyphicon.glyphicon-trash
               .pull-right.right-pulled-button
                 = link_to edit_project_path(project.id) do
@@ -25,7 +25,7 @@
           .panel-body
             = project.description
 
-    = link_to new_project_path, class: 'btn btn-default'
+    = link_to new_project_path, class: 'btn btn-default' do
       span
         span.glyphicon.glyphicon-plus>
         | New Project
