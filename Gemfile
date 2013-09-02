@@ -46,7 +46,7 @@ end
 
 gem 'inherited_resources'
 gem 'kaminari'
-gem 'simple_form'
+gem 'simple_form', '3.0.0.rc'
 gem 'redcarpet'
 gem 'slim'
 gem 'slim-rails'
