@@ -1,9 +1,17 @@
 doctype html
-html
+html lang="en"
   head
     title Crafty
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-    == yield
+
+    nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
+      a.navbar-brand href="#{root_path}" Craftery
+
+    div.container
+
+      == render partial: 'layouts/flash'
+
+      == yield

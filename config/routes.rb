@@ -1,5 +1,9 @@
 Crafty::Application.routes.draw do
+
+  root 'home#home'
+
   resources :projects
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

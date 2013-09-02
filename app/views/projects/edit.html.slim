@@ -1,11 +1,21 @@
-h1 Edit Project
+.row
 
-= simple_form_for @project do |f|
-  = f.input :name, required: true
-  = f.button :submit
+  .col-md-8
 
-p
-  =' link_to "Delete", project_path(@project.id), :method => :delete
-p
-  =' link_to "Back to details", project_path(@project.id)
-  =' link_to "Back to Projects list", projects_path
+    h1 Edit Project
+
+  .col-md-4
+
+    h1.pull-right
+      = link_to project_path(@project.id), :method => :delete, class: 'btn btn-default right-pulled-button' do
+        span.glyphicon.glyphicon-trash>
+        | Delete
+
+.row
+
+  .col-md-12
+
+    == render :partial => 'form'
+
+    p
+      = link_to "Back to list", root_path
