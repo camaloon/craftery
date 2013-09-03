@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+@import "twitter/bootstrap";
+//$link-color: red;
+
+.global-flash {
+  margin-top: 10px;
+}
+
+.right-pulled-button {
+  margin-left: 5px;
+}
+.left-pulled-button {
+  margin-left: 5px;
+}
