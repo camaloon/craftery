@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830163242) do
+ActiveRecord::Schema.define(version: 20130903144318) do
 
   create_table "features", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "owner_id"
-    t.boolean  "draft"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   add_index "features", ["owner_id"], name: "index_features_on_owner_id"
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 20130830163242) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "username",   limit: 32
     t.string   "password"
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["role_id"], name: "index_users_on_role_id"

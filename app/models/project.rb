@@ -12,5 +12,5 @@
 class Project < ActiveRecord::Base
   has_many :features
 
-  validates :name, presence: true, length: { minimum: 5 }
+  validates_presence_of :name
 end

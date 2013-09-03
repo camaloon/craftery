@@ -6,10 +6,10 @@
 #  name        :string(255)
 #  description :text
 #  owner_id    :integer
-#  draft       :boolean
 #  project_id  :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  status      :string(255)
 #
 
 require 'spec_helper'
