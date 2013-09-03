@@ -7,6 +7,9 @@ require 'rails/all'
 Bundler.require(:default, Rails.env)
 
 module Craftery
+
+  mattr_accessor :credentials_config
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -21,5 +24,10 @@ module Craftery
     config.i18n.default_locale = :en
 
     config.autoload_paths += %W(#{config.root}/lib)
+
+    config.before_initialize do
+      Craftery.credentials_config = Hashie::Mash.new(YAML.load_file(File.expand_path("config/credentials.yml"))[Rails.env])
+    end
   end
+
 end

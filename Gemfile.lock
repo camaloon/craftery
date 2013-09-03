@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: a4e33463d3689443702c5868dafea4a1a92e439e
+  revision: 570c0c630235a2e2bad16792351e11c4259ffce5
   specs:
     anjlab-bootstrap-rails (3.0.0.2)
       railties (>= 3.0)
@@ -67,6 +67,7 @@ GEM
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.5)
     inherited_resources (1.4.1)
@@ -196,6 +197,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  hashie
   inherited_resources
   jbuilder (~> 1.2)
   jquery-rails
