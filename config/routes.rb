@@ -1,4 +1,4 @@
-Crafty::Application.routes.draw do
+Craftery::Application.routes.draw do
 
   root 'home#home'
 
