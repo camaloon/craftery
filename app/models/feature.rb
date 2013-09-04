@@ -18,8 +18,8 @@ class Feature < ActiveRecord::Base
 
   validates_presence_of :owner, :project, :name
 
-  validates :state, presence: true, inclusion: {
-      in: %w(draft, frozen),
+  validates :status, presence: true, inclusion: {
+      in: %w(draft frozen),
       message: ' should be draft or frozen'
   }
 
