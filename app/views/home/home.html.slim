@@ -16,11 +16,11 @@
           .panel-heading
             h3.panel-title
               = link_to project.name.capitalize, project_path(project)
-              .pull-right.right-pulled-button
-                = link_to project_path(project.id), method: :delete, data: { confirm: "Are you sure?"} do
+              .pull-right.right-pulled-header-elm
+                = link_to project_path(project), method: :delete, data: { confirm: "Are you sure?"} do
                   span.glyphicon.glyphicon-trash
-              .pull-right.right-pulled-button
-                = link_to edit_project_path(project.id) do
+              .pull-right.right-pulled-header-elm
+                = link_to edit_project_path(project) do
                   span.glyphicon.glyphicon-edit
           .panel-body
             = project.description
