@@ -54,10 +54,10 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 gem 'hashie'
 
 group :development, :test do
-  # gem 'turn'
-  # gem 'capybara'
+  gem 'capybara'
   gem 'rspec-rails', '~> 2.0'
   gem 'turnip'
+  gem 'factory_girl_rails'
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-rails'
