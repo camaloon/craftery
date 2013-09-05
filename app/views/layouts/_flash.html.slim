@@ -2,5 +2,5 @@
   - flash.each do |type, msg|
     div class="global-flash alert alert-#{bootstrap_flash_type(type)}"
       button.close data-dismiss="alert" aria-hidden="true" ×
-      strong>  #{type.capitalize}:
+      strong>  #{user_flash_type(type).capitalize}:
       = msg
