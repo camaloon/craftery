@@ -20,12 +20,14 @@ class Feature < ActiveRecord::Base
 
   validates :status, presence: true, inclusion: {
       in: %w(draft frozen),
-      message: ' should be draft or frozen'
+      message: 'should be draft or frozen'
   }
 
   validate on: :create do |feature|
-    if feature.owner.role.nil?
-      feature.errors.add(:owner, 'does not have an associated role')
+    unless feature.owner.nil?
+      if feature.owner.role.nil?
+        feature.errors.add(:owner, 'does not have an associated role')
+      end
     end
   end
 

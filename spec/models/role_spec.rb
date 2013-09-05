@@ -11,5 +11,10 @@
 require 'spec_helper'
 
 describe Role do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  subject { build :role }
+
+  it { should be_valid }
+  it { should validate_presence_of :name }
+
 end

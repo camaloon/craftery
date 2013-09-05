@@ -54,14 +54,20 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 gem 'hashie'
 
 group :development, :test do
+
   gem 'capybara'
   gem 'rspec-rails', '~> 2.0'
   gem 'turnip'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
+
   gem 'annotate', '>=2.5.0'
+
 end

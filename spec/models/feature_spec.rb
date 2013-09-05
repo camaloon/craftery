@@ -15,5 +15,19 @@
 require 'spec_helper'
 
 describe Feature do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  subject { build :feature }
+
+  it { should be_valid }
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :project }
+  it { should validate_presence_of :owner }
+
+  it "should validate that its owner has a role" do
+    feature = build :feature, owner: build(:user, role: nil)
+    feature.should_not be_valid
+    feature.owner.role = FactoryGirl.build :role
+    feature.should be_valid
+  end
+
 end
