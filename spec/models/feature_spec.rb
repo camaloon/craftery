@@ -25,9 +25,9 @@ describe Feature do
 
   it "should validate that its owner has a role" do
     feature = build :feature, owner: build(:user, role: nil)
-    feature.should_not be_valid
+    expect(feature).not_to be_valid
     feature.owner.role = FactoryGirl.build :role
-    feature.should be_valid
+    expect(feature).to be_valid
   end
 
 end
