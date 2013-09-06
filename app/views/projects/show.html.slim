@@ -8,10 +8,10 @@
   .col-md-4
 
     h1.pull-right
-      = link_to edit_project_path(@project.id), class: 'btn btn-default right-pulled-header-elm' do
+      = link_to edit_project_path(@project.id), title: 'Edit Project', class: 'btn btn-default right-pulled-header-elm' do
         span.glyphicon.glyphicon-edit>
         | Edit
-      = link_to project_path(@project.id), :method => :delete, class: 'btn btn-default right-pulled-header-elm', data: { confirm: "Are you sure?"} do
+      = link_to project_path(@project.id), :method => :delete, title: 'Delete Project', class: 'btn btn-default right-pulled-header-elm', data: { confirm: "Are you sure?"} do
         span.glyphicon.glyphicon-trash>
         | Delete
 
@@ -38,15 +38,15 @@
                 =< feature.owner.name.titleize
               .badge = feature.status
               .pull-right.right-pulled-header-elm
-                = link_to feature_path(feature), method: :delete, data: { confirm: "Are you sure?"} do
+                = link_to feature_path(feature), method: :delete, title: 'Delete Feature', data: { confirm: "Are you sure?"} do
                   span.glyphicon.glyphicon-trash
               .pull-right.right-pulled-header-elm
-                = link_to edit_feature_path(feature) do
+                = link_to edit_feature_path(feature), title: 'Edit Feature' do
                   span.glyphicon.glyphicon-edit
           .panel-body
             = feature.description
 
-    = link_to new_feature_path, class: 'btn btn-default' do
+    = link_to new_feature_path, title: 'New Feature', class: 'btn btn-default' do
       span
         span.glyphicon.glyphicon-plus>
         | New Feature

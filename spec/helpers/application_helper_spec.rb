@@ -10,5 +10,14 @@
 #     end
 #   end
 # end
-describe ProjectsHelper do
+describe ApplicationHelper do
+
+  describe "bootstrap_flash_type" do
+    it { expect(helper.bootstrap_flash_type('alert')).to eq 'danger' }
+  end
+
+  describe "user_flash_type" do
+    it { expect(helper.user_flash_type('alert')).to eq 'Warning' }
+  end
+
 end
