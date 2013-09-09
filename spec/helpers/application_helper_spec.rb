@@ -13,11 +13,11 @@
 describe ApplicationHelper do
 
   describe "bootstrap_flash_type" do
-    it { expect(helper.bootstrap_flash_type('alert')).to eq 'danger' }
+    it { helper.bootstrap_flash_type('alert').should eq 'danger' }
   end
 
   describe "user_flash_type" do
-    it { expect(helper.user_flash_type('alert')).to eq 'Warning' }
+    it { helper.user_flash_type('alert').should eq 'Warning' }
   end
 
 end

@@ -14,9 +14,6 @@ require 'spec_helper'
 
 describe User do
 
-  subject { build :user }
-
-  it { should be_valid }
   it { should validate_presence_of :name }
   it { should validate_presence_of :username }
 

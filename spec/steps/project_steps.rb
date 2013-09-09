@@ -61,34 +61,34 @@ module ProjectSteps
   ## Expectations #############################################################
 
   step 'the User is informed of the operation\'s success' do
-    expect(page).to have_content 'Success'
+    page.should have_content 'Success'
   end
 
   # Home
 
   step 'the List of Projects should be displayed' do
-    expect(page).to have_content 'Test project 1'
-    expect(page).to have_content 'test project 1 description'
-    expect(page).to have_content 'Test project 2'
-    expect(page).to have_content 'test project 2 description'
+    page.should have_content 'Test project 1'
+    page.should have_content 'test project 1 description'
+    page.should have_content 'Test project 2'
+    page.should have_content 'test project 2 description'
   end
 
   # Project's Detail Page
 
   step 'the Project details are displayed' do
-    expect(page).to have_content @project1.name.capitalize
+    page.should have_content @project1.name.capitalize
   end
 
   step 'the Project Details Page displays with the updated data' do
-    expect(page).to have_content 'Edited name'
-    expect(page).to have_content 'edited description'
+    page.should have_content 'Edited name'
+    page.should have_content 'edited description'
   end
 
   # Edit Project Form
 
   step 'the Edit Project Form is displayed populated with the Project\'s values' do
-    expect(find_field('* Name').value).to eq @project1.name
-    expect(find_field('Description').value).to eq @project1.description
+    find_field('* Name').value.should eq @project1.name
+    find_field('Description').value.should eq @project1.description
   end
 
   # New Project Form
@@ -97,9 +97,9 @@ module ProjectSteps
     # TODO: this check throws a Capybara::ElementNotFound exception when the
     # field doesn't exist. Can these expectations be better written? (this
     # works anyway).
-    expect(find_field('* Name')).not_to be_nil
-    expect(find_field('Description')).not_to be_nil
-    expect(find_button('Create Project')).not_to be_nil
+    page.should have_field('* Name')
+    page.should have_field('Description')
+    page.should have_button('Create Project')
   end
 
   ## Helpers ##################################################################

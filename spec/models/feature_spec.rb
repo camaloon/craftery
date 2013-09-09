@@ -16,9 +16,6 @@ require 'spec_helper'
 
 describe Feature do
 
-  subject { build :feature }
-
-  it { should be_valid }
   it { should validate_presence_of :name }
   it { should validate_presence_of :project }
   it { should validate_presence_of :owner }

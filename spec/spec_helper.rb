@@ -31,7 +31,7 @@ RSpec.configure do |config|
   # config.mock_with :rr
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  #config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -53,12 +53,19 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.logger = Rails.logger
+    DatabaseCleaner.strategy = :transaction
+  end
+  config.before(:all, type: :feature) do
     DatabaseCleaner.strategy = :truncation
+  end
+  config.after(:all, type: :feature) do
+    DatabaseCleaner.strategy = :transaction
   end
   config.before(:each) do
     DatabaseCleaner.start
   end
   config.after(:each) do
+    Timecop.return
     DatabaseCleaner.clean
   end
 
