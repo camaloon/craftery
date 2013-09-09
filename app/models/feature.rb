@@ -23,12 +23,4 @@ class Feature < ActiveRecord::Base
       message: 'should be draft or frozen'
   }
 
-  validate on: :create do |feature|
-    unless feature.owner.nil?
-      if feature.owner.role.nil?
-        feature.errors.add(:owner, 'does not have an associated role')
-      end
-    end
-  end
-
 end

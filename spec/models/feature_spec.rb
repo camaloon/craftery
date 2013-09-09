@@ -23,11 +23,4 @@ describe Feature do
   it { should validate_presence_of :project }
   it { should validate_presence_of :owner }
 
-  it "should validate that its owner has a role" do
-    feature = build :feature, owner: build(:user, role: nil)
-    expect(feature).not_to be_valid
-    feature.owner.role = FactoryGirl.build :role
-    expect(feature).to be_valid
-  end
-
 end

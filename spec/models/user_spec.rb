@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  password   :string(255)
-#  role_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #  username   :string(255)
