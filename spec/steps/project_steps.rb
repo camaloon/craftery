@@ -3,40 +3,20 @@ module ProjectSteps
   ## Preconditions and Actions ################################################
 
   step "the following Projects exist in the system" do  |table|
-    @projects = {}
+    @projects ||= {}
     table.hashes.each do |hash|
       @projects[hash['Name']] = create :project, name: hash['Name'], description: hash['Description']
     end
   end
 
-  # Home Page
-
-  step "I visit the Home Page" do
-    visit root_path
+  step "I visit the :route_human_name Page for Project :project_name" do |route_human_name, project_name|
+    visit self.send(route_human_name_to_str(route_human_name), @projects[project_name])
   end
 
   step "I click the :link_name Link for Project :project_name in the Project List" do |link_name, project_name|
     within_project_scope @projects[project_name] do
       click_on link_name
     end
-  end
-
-  # Project's Detail Page
-
-  step "I visit the Project's Detail Page for Project :project_name" do |project_name|
-    visit project_path @projects[project_name]
-  end
-
-  # New Project Form
-
-  step "I visit the New Project Form" do
-    visit new_project_path
-  end
-
-  # Edit Project Form
-
-  step "I visit the Edit Project Form for Project :project_name" do |project_name|
-    visit edit_project_path @projects[project_name]
   end
 
   ## Expectations #############################################################
@@ -56,7 +36,7 @@ module ProjectSteps
     page.should have_content @projects[project_name].name.capitalize
   end
 
-  step "the Project Details Page displays showing :new_name and :new_description" do |new_name, new_description|
+  step "the Project Page displays showing :new_name and :new_description" do |new_name, new_description|
     page.should have_content new_name.capitalize
     page.should have_content new_description
   end
