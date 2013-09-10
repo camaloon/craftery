@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909142400) do
+ActiveRecord::Schema.define(version: 20130910114721) do
 
   create_table "features", force: true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20130909142400) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
+    t.string   "state"
   end
 
   add_index "features", ["owner_id"], name: "index_features_on_owner_id"
