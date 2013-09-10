@@ -21,7 +21,7 @@ module ProjectSteps
 
   ## Expectations #############################################################
 
-  # Home
+  # Projects list
 
   step "the following Projects should be displayed in a list" do |table|
     table.hashes.each do |hash|
