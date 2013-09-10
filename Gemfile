@@ -63,6 +63,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'timecop'
 
+end
+
+group :development do
+
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-rails'
