@@ -1,51 +1,66 @@
 Feature: Managing Projects
   Background:
-    Given there are a couple of Projects in the system
+    Given the following Projects exist in the system
+      | Name   | Description                |
+      | test 1 | test project 1 description |
+      | test 2 | test project 2 description |
 
-  # Home page
+# Home page
 
   Scenario:
-    When a User visits the Home Page
-    Then the List of Projects should be displayed
+    When I visit the Home Page
+    Then the following Projects should be displayed in a list
+      | Name   | Description                |
+      | test 1 | test project 1 description |
+      | test 2 | test project 2 description |
 
   # Project Details
 
   Scenario:
-    When a User visits the Home Page
-    And  clicks on a Project link in the Project List
-    Then the Project details are displayed
+    When I visit the Home Page
+    And  I click the "Test 1" Link for Project "test 1" in the Project List
+    Then the "test 1" Project's Details are displayed
 
   # New Project
 
   Scenario:
-    When a User visits the Home Page
-    And  clicks the New Project link
+    When I visit the Home Page
+    And  I click the "New Project" link
     Then the New Project Form is displayed
 
   Scenario:
-    When a User visits and fills the New Project Form
-    Then the User is informed of the operation's success
+    When I visit the New Project Form
+    And  I fill the values of the form as follows
+      | Field       | Value         |
+      | * Name      | a name        |
+    And  I click the "Create Project" link
+    Then the system informs me of the operation's success stating "Project was successfully created."
 
   # Edit Project
 
   Scenario:
-    When a User visits the Home Page
-    And  clicks on an Edit Project Link in the Project List
-    Then the Edit Project Form is displayed populated with the Project's values
+    When I visit the Home Page
+    And  I click the "Edit Project" Link for Project "test 1" in the Project List
+    Then the Edit Project Form is displayed populated with the values for Project "test 1"
 
   Scenario:
-    When a User visits the Project's Detail Page for a given Project
-    And  clicks on the Edit Project Link
-    Then the Edit Project Form is displayed populated with the Project's values
+    When I visit the Project's Detail Page for Project "test 1"
+    And  I click the "Edit" link
+    Then the Edit Project Form is displayed populated with the values for Project "test 1"
 
   Scenario:
-    When a User visits and modifies some values in the Edit Project Form and saves
-    Then the User is informed of the operation's success
-    And  the Project Details Page displays with the updated data
+    When I visit the Edit Project Form for Project "test 1"
+    And  I modify the values of the form as follows
+      | Field       | Value             |
+      | * Name      | a new name        |
+      | Description | a new description |
+    And  I click the "Update Project" link
+    Then the system informs me of the operation's success stating "Project was successfully updated."
+    And  the Project Details Page displays showing "a new name" and "a new description"
 
   # Delete Project
 
   Scenario:
-    When a User visits the Project's Detail Page for a given Project
-    And  clicks on the Delete Project Link
-    Then the User is informed of the operation's success
+    When I visit the Project's Detail Page for Project "test 1"
+    And  I click the "Delete" link
+    Then the system informs me of the operation's success stating "Project was successfully destroyed."

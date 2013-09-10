@@ -15,7 +15,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 # Include Turnip step definitions
-Dir[Rails.root.join("spec/steps/**/*.rb")].each do |f|
+require Rails.root.join('spec/steps/global.rb')
+Dir[Rails.root.join("spec/steps/**/*_steps.rb")].each do |f|
   require f
   the_module = File.basename(f, '.rb').camelize.constantize
   RSpec.configure { |c| c.include the_module }
