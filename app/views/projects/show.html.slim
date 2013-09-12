@@ -3,50 +3,54 @@
   .col-md-8
 
     h1
-      => @project.name.capitalize
+      => resource.name.capitalize
 
   .col-md-4
 
     h1.pull-right
-      = link_to edit_project_path(@project.id), title: 'Edit Project', class: 'btn btn-default right-pulled-header-elm' do
-        span.glyphicon.glyphicon-edit>
-        | Edit
-      = link_to project_path(@project.id), :method => :delete, title: 'Delete Project', class: 'btn btn-default right-pulled-header-elm', data: { confirm: "Are you sure?"} do
-        span.glyphicon.glyphicon-trash>
-        | Delete
+      .btn-toolbar
+        = link_to edit_resource_path, class: 'btn btn-default' do
+          span.glyphicon.glyphicon-edit>
+          | Edit
+        = link_to resource_path, method: :delete, class: 'btn btn-default', data: { confirm: "Are you sure?"} do
+          span.glyphicon.glyphicon-trash>
+          | Delete
 
 .row
 
   .col-md-12
 
-    .panel
+    .panel.panel-default
       .panel-body
-        = @project.description
+        = resource.description
 
 .row
 
   .col-md-12
 
     #feature_list
-      - @project.features.each do |feature|
-        .panel.panel-default
+      - resource.features.each do |feature|
+        = div_for(feature, class: "panel panel-default") do
           .panel-heading
             h3.panel-title
-              => link_to feature.name.capitalize, feature_path(feature)
+              => link_to feature.name.capitalize, project_feature_path(resource, feature)
               small>
                 | by
                 =< feature.owner.name.titleize
-              .badge = feature.status
+              .badge = feature.state
               .pull-right.right-pulled-header-elm
-                = link_to feature_path(feature), method: :delete, title: 'Delete Feature', data: { confirm: "Are you sure?"} do
+                = link_to project_feature_path(resource, feature), method: :delete, title: 'Delete Feature', data: { confirm: "Are you sure?"} do
                   span.glyphicon.glyphicon-trash
               .pull-right.right-pulled-header-elm
-                = link_to edit_feature_path(feature), title: 'Edit Feature' do
+                = link_to edit_project_feature_path(resource, feature), title: 'Edit Feature' do
                   span.glyphicon.glyphicon-edit
           .panel-body
             = feature.description
 
-    = link_to new_feature_path, title: 'New Feature', class: 'btn btn-default' do
+    = link_to new_project_feature_path(resource), class: 'btn btn-default' do
       span
         span.glyphicon.glyphicon-plus>
         | New Feature
+
+    p
+      = link_to "Back to Home", root_path

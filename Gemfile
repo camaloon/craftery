@@ -53,7 +53,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
     :github => 'anjlab/bootstrap-rails'
 gem 'hashie'
 
-group :development, :test do
+group :test do
 
   gem 'capybara'
   gem 'rspec-rails', '~> 2.0'
@@ -62,6 +62,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'timecop'
+  gem 'fuubar'
 
 end
 
@@ -72,7 +73,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
-
   gem 'annotate', '>=2.5.0'
+  gem 'quiet_assets'
 
 end

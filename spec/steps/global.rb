@@ -1,5 +1,12 @@
 module Turnip::Steps
 
+  ## Debug ####################################################################
+
+  step "pry" do
+    require 'pry'
+    binding.pry
+  end
+
   ## Generic HTML #############################################################
 
   step "I click the :link_name link" do |link_name|
@@ -30,7 +37,7 @@ module Turnip::Steps
   ## Helpers ##################################################################
 
   def route_human_name_to_str(route_human_name)
-    route_human_name.titlecase.sub(/ /, '').underscore + '_path'
+    route_human_name.titlecase.gsub(/ /, '').underscore + '_path'
   end
 
 end

@@ -1,0 +1,21 @@
+.row
+
+  .col-md-8
+
+    h1 Edit Feature
+
+  .col-md-4
+
+    h1.pull-right
+      = link_to project_feature_path(parent, resource), method: :delete, title: 'Delete Feature', class: 'btn btn-default', data: { confirm: "Are you sure?"} do
+        span.glyphicon.glyphicon-trash>
+        | Delete
+
+.row
+
+  .col-md-12
+
+    = render "form"
+
+    p
+      = link_to "Back to Project", parent_path

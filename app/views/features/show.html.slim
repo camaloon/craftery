@@ -1,0 +1,59 @@
+.row
+
+  .col-md-8
+
+    h1
+      => resource.name.capitalize
+    small>
+      | by
+      =< resource.owner.name.titleize
+    .badge = resource.state
+
+  .col-md-4
+
+    h1.pull-right
+      .btn-toolbar
+        = link_to edit_resource_path, class: 'btn btn-default' do
+          span.glyphicon.glyphicon-edit>
+          | Edit
+        = link_to resource_path, :method => :delete, class: 'btn btn-default', data: { confirm: "Are you sure?"} do
+          span.glyphicon.glyphicon-trash>
+          | Delete
+
+.row
+
+  .col-md-12
+
+    .panel.panel-default
+      .panel-body
+        = resource.description
+
+    p
+      = link_to "Back to Project", parent_path
+
+/.row
+/
+/  .col-md-12
+/
+/    #user_story_list
+/      - resource.user_stories.each do |user_story|
+/        .panel.panel-default id="user-story-#{user_story.id}"
+/          .panel-heading
+/            h3.panel-title
+/              => link_to user_story.name.capitalize, user_story_path(user_story)
+/              small>
+/                | by
+/                =< user_story.owner.name.titleize
+/              .pull-right.right-pulled-header-elm
+/                = link_to user_story_path(user_story), method: :delete, title: 'Delete User Story', data: { confirm: "Are you sure?"} do
+/                  span.glyphicon.glyphicon-trash
+/              .pull-right.right-pulled-header-elm
+/                = link_to edit_user_story_path(user_story), title: 'Edit User Story' do
+/                  span.glyphicon.glyphicon-edit
+/          .panel-body
+/            = user_story.description
+/
+/    = link_to new_user_story_path, class: 'btn btn-default' do
+/      span
+/        span.glyphicon.glyphicon-plus>
+/        | New User Story

@@ -14,7 +14,7 @@ module ProjectSteps
   end
 
   step "I click the :link_name Link for Project :project_name in the Project List" do |link_name, project_name|
-    within_project_scope @projects[project_name] do
+    within "#project_#{@projects[project_name].id}" do
       click_on link_name
     end
   end
@@ -34,6 +34,7 @@ module ProjectSteps
 
   step "the :project_name Project's Details are displayed" do |project_name|
     page.should have_content @projects[project_name].name.capitalize
+    page.should have_content @projects[project_name].description
   end
 
   step "the Project Page displays showing :new_name and :new_description" do |new_name, new_description|
@@ -57,12 +58,6 @@ module ProjectSteps
     page.should have_field('* Name')
     page.should have_field('Description')
     page.should have_button('Create Project')
-  end
-
-  ## Helpers ##################################################################
-
-  def within_project_scope(project, &block)
-    within "#project-#{project.id}", &block
   end
 
 end
