@@ -18,7 +18,7 @@ Feature: Managing Projects
 
   Scenario:
     When I visit the "Root" Page
-    And  I click the "Test 1" Link for Project "test 1" in the Project List
+    And  I click the "Test 1" Link for Project "test 1" in the List
     Then the "test 1" Project's Details are displayed
 
   # New Project
@@ -40,7 +40,7 @@ Feature: Managing Projects
 
   Scenario:
     When I visit the "Root" Page
-    And  I click the "Edit Project" Link for Project "test 1" in the Project List
+    And  I click the "Edit Project" Link for Project "test 1" in the List
     Then the Edit Project Form is displayed populated with the values for Project "test 1"
 
   Scenario:

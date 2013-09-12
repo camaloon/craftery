@@ -23,7 +23,7 @@ Feature: Managing Features
 
   Scenario:
     When I visit the "Project" Page for Project "test"
-    And  I click the "Test 1" Link for Feature "test 1" in the Feature List
+    And  I click the "Test 1" Link for Feature "test 1" in the List
     Then the "test 1" Feature's Details are displayed
 
 # New Project
@@ -45,16 +45,16 @@ Feature: Managing Features
 
   Scenario:
     When I visit the "Project" Page for Project "test"
-    And  I click the "Edit Feature" Link for Feature "test 1" in the Feature List
+    And  I click the "Edit Feature" Link for Feature "test 1" in the List
     Then the Edit Feature Form is displayed populated with the values for Feature "test 1"
 
   Scenario:
-    When I visit the "Project Feature" Page for Feature "test 1" of Project "test"
+    When I visit the "Project Feature" Page for Feature "test 1"
     And  I click the "Edit" link
     Then the Edit Feature Form is displayed populated with the values for Feature "test 1"
 
   Scenario:
-    When I visit the "Edit Project Feature" Page for Feature "test 1" of Project "test"
+    When I visit the "Edit Project Feature" Page for Feature "test 1"
     And  I modify the values of the form as follows
       | Field       | Value             |
       | * Name      | a new name        |
@@ -67,15 +67,15 @@ Feature: Managing Features
 
   Scenario:
     When I visit the "Project" Page for Project "test"
-    And  I click the "Delete Feature" Link for Feature "test 1" in the Feature List
+    And  I click the "Delete Feature" Link for Feature "test 1" in the List
     Then the system informs me of the operation's success stating "Feature was successfully destroyed."
 
   Scenario:
-    When I visit the "Project Feature" Page for Feature "test 1" of Project "test"
+    When I visit the "Project Feature" Page for Feature "test 1"
     And  I click the "Delete" link
     Then the system informs me of the operation's success stating "Feature was successfully destroyed."
 
   Scenario:
-    When I visit the "Edit Project Feature" Page for Feature "test 1" of Project "test"
+    When I visit the "Edit Project Feature" Page for Feature "test 1"
     And  I click the "Delete" link
     Then the system informs me of the operation's success stating "Feature was successfully destroyed."

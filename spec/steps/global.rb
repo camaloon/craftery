@@ -13,6 +13,14 @@ module Turnip::Steps
     click_on link_name
   end
 
+  step "I click the :link_name Link for :resource_type :resource_name in the List" do |link_name, resource_type, resource_name|
+    css_id_prefix = resource_type.downcase + '_'
+    id = resource_type.capitalize.constantize.find_by_name(resource_name).id
+    within "##{css_id_prefix}#{id}" do
+      click_on link_name
+    end
+  end
+
   step "I fill/modify the values of the form as follows" do |table|
     table.hashes.each do |hash|
       fill_in hash['Field'], with: hash['Value']
