@@ -2,53 +2,37 @@ require 'spec_helper'
 
 describe ProjectsController do
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
-  end
-
   describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+    it "creates a project when the parameters passed are correct" do
+      post 'create', project: {
+          name: 'Test new project',
+          description: 'A test description',
+      }
+      projects_found = Project.where name: 'Test new project', description: 'A test description'
+      projects_found.should have_exactly(1).item
     end
-  end
 
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
-  end
+    it "permits only parameters that the user can safely specify" do
 
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-  end
+      t_now = Time.zone.parse '2001-01-01 01:01:01 +0100'
+      t_malicious = Time.zone.parse '2002-02-02 02:02:02 +0200'
 
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
-  end
+      Timecop.freeze(t_now) do
 
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
+        post 'create', project: {
+            name: 'Test new project',
+            description: 'A test description',
+            created_at: t_malicious # should be non permitted
+        }
+        projects_found = Project.where name: 'Test new project', description: 'A test description'
+        projects_found.should have_exactly(1).item
+        projects_found.first.created_at.should eq t_now
+
+      end
+
     end
+
   end
 
 end

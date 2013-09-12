@@ -23,6 +23,14 @@ module Craftery
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
+    # don't generate RSpec tests for views and helpers since we're using turnip
+    config.generators do |g|
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.view_specs false
+      g.helper_specs false
+    end
+
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.before_initialize do

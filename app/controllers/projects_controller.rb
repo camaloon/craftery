@@ -2,20 +2,11 @@ class ProjectsController < InheritedResources::Base
 
   respond_to :html
 
+  actions :all, except: :index
+  alias_method :collection_url, :root_url
+
   def permitted_params
     params.permit(:project => [:name, :description])
-  end
-
-  def create
-    create! { root_url }
-  end
-
-  def update
-    update! { root_url }
-  end
-
-  def destroy
-    destroy! { root_url }
   end
 
 end

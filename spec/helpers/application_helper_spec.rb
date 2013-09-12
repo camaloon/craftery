@@ -1,4 +1,4 @@
-require 'spec_helper'
+  require 'spec_helper'
 
 # Specs in this file have access to a helper object that includes
 # the ProjectsHelper. For example:
@@ -10,6 +10,14 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe ProjectsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe ApplicationHelper do
+
+  describe "bootstrap_flash_type" do
+    it { helper.bootstrap_flash_type('alert').should eq 'danger' }
+  end
+
+  describe "user_flash_type" do
+    it { helper.user_flash_type('alert').should eq 'Warning' }
+  end
+
 end
