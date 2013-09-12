@@ -10,22 +10,19 @@
 
   .col-md-8
 
-    #project_list
+    #project-list
       - @projects.each do |project|
-        .panel.panel-default
+        = div_for(project, class: "panel panel-default") do
           .panel-heading
             h3.panel-title
               = link_to project.name.capitalize, project_path(project)
-              .pull-right.right-pulled-button
-                = link_to project_path(project.id), method: :delete, data: { confirm: "Are you sure?"} do
-                  span.glyphicon.glyphicon-trash
-              .pull-right.right-pulled-button
-                = link_to edit_project_path(project.id) do
+              .pull-right.right-pulled-header-elm
+                = link_to edit_project_path(project), title: 'Edit Project' do
                   span.glyphicon.glyphicon-edit
           .panel-body
             = project.description
 
-    = link_to new_project_path, class: 'btn btn-default' do
+    = link_to new_project_path, title: 'New Project', class: 'btn btn-default' do
       span
         span.glyphicon.glyphicon-plus>
         | New Project
