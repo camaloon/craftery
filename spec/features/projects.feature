@@ -1,5 +1,9 @@
 Feature: Managing Projects
   Background:
+    Given there is a user in the system that has the following data
+      | Username | Name      | Email              | Password |
+      | testuser | test user | testuser@test.test | 1234     |
+    And I am identified in the system as "testuser" using password "1234"
     Given the following Projects exist in the system
       | Name   | Description                |
       | test 1 | test project 1 description |
