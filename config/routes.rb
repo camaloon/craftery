@@ -4,6 +4,7 @@ Craftery::Application.routes.draw do
 
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
+  get '/signup' => 'users#new'
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
 
