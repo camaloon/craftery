@@ -2,6 +2,11 @@ Craftery::Application.routes.draw do
 
   root 'home#home'
 
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
+
   resources :projects do
     resources :features
   end

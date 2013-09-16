@@ -33,7 +33,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -53,8 +53,14 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
     :github => 'anjlab/bootstrap-rails'
 gem 'hashie'
 
-group :test do
+group :development do
+  gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'annotate', '>=2.5.0'
+  gem 'quiet_assets'
+end
 
+group :test do
   gem 'capybara'
   gem 'rspec-rails', '~> 2.0'
   gem 'turnip'
@@ -63,17 +69,10 @@ group :test do
   gem 'database_cleaner'
   gem 'timecop'
   gem 'fuubar'
-
 end
 
-group :development do
-
-  gem 'binding_of_caller'
-  gem 'better_errors'
+group :development, :test do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
-  gem 'annotate', '>=2.5.0'
-  gem 'quiet_assets'
-
 end

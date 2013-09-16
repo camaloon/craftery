@@ -1,6 +1,5 @@
-class ProjectsController < InheritedResources::Base
-
-  respond_to :html
+class ProjectsController < ApplicationController
+  inherit_resources
 
   actions :all, except: :index
   alias_method :collection_url, :root_url

@@ -9,6 +9,12 @@ html lang="en"
 
     nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
       = link_to "Craftery", root_path, class: "navbar-brand"
+      ul.nav.navbar-nav.navbar-right
+        li
+          - if logged_in?
+            = link_to "Log out #{current_user.username}", logout_path
+          - else
+            = link_to "Log in", login_path
 
     div.container
 
