@@ -12,7 +12,7 @@ class FeaturesController < ApplicationController
   end
 
   def create_resource(feature)
-    feature.owner = User.first # TODO: fix when user auth is implemented!!
+    feature.owner = current_user
     super
   end
 
