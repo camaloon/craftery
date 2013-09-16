@@ -10,10 +10,11 @@ class SessionsController < ApplicationController
   def create
     if user = User.find_by_username(params[:session][:username])
       if user.authenticate params[:session][:password]
-        session[:user_id] = user.id
+        set_current_user!(user)
       end
     end
-    if session[:user_id]
+
+    if logged_in?
       redirect_to root_path
     else
       flash.now[:alert] = "There was a problem logging you in. Incorrect username or password?"
@@ -22,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :user_id
+    unset_current_user!
     redirect_to root_path
   end
 end
