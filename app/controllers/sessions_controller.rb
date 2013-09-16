@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     unset_current_user!
+    flash[:notice] = "You just logged out."
     redirect_to root_path
   end
 end
