@@ -13,15 +13,17 @@
  */
 
 @import "twitter/bootstrap";
+
 //$link-color: red;
 
 .global-flash {
   margin-top: 10px;
 }
 
-.right-pulled-header-elm {
+.right-pulled-header-elm { /* TODO: remove this in favor of bootstrap way of doing things */
   margin-left: 5px;
 }
-.left-pulled-header-elm {
+
+.left-pulled-header-elm { /* TODO: remove this in favor of bootstrap way of doing things */
   margin-left: 5px;
 }
