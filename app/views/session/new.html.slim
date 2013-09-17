@@ -4,7 +4,7 @@ p
   ' Don't have an account?
   = link_to 'Sign up', signup_path
 
-= form_tag sessions_path, method: 'POST', role: 'form' do
+= form_tag login_path, role: 'form' do
   .form-group
     label for='session_username' Username
     input.form-control#session_username name='session[username]'

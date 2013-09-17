@@ -10,6 +10,7 @@ module UserSessionHelpers
 
   def unset_current_user!
     session.delete(:user_id)
+    @current_user = nil
   end
 
   def current_user
@@ -17,6 +18,6 @@ module UserSessionHelpers
   end
 
   def logged_in?
-    current_user.present?
+    !current_user.nil?
   end
 end

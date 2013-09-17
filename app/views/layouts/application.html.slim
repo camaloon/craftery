@@ -12,7 +12,7 @@ html lang="en"
       ul.nav.navbar-nav.navbar-right
         li
           - if logged_in?
-            = link_to "Log out #{current_user.username}", logout_path
+            = link_to "Log out #{current_user.username}", logout_path, method: :delete
           - else
             = link_to "Log in", login_path
 
