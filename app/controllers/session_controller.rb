@@ -9,7 +9,7 @@ class SessionController < ApplicationController
   def create
     if user = User.find_by_username(params[:session][:username])
       if user.authenticate params[:session][:password]
-        set_current_user!(user)
+        set_current_user! user
       end
     end
 
