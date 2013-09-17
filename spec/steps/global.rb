@@ -29,11 +29,6 @@ module Turnip::Steps
 
   ## Implementation specific ##################################################
 
-  step "I am identified in the system with the following data" do |table|
-    user_data = table.hashes.first
-    @logged_user = create :user, username: user_data['Username'], name: user_data['Name']
-  end
-
   step "the system informs me of the operation's success stating :message" do |message|
     page.should have_content 'Success: ' + message
   end

@@ -1,0 +1,13 @@
+h1 Sign up
+
+p
+  ' Already have an account?
+  = link_to 'Log in', login_path
+
+= simple_form_for resource, :html => { role: 'form' } do |f|
+  = f.input :name, required: true
+  = f.input :email
+  = f.input :username
+  = f.input :password
+  = f.input :password_confirmation
+  = f.button :submit, 'Sign up!', class: 'btn-primary'

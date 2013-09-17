@@ -1,10 +1,10 @@
 Feature: Managing Features
   Background:
-    # TODO: make sure this gets refactored when user auth is implemented
-    Given I am identified in the system with the following data
-      | Username | Name      |
-      | testuser | test user |
-    Given the following Projects exist in the system
+    Given there is a user in the system that has the following data
+      | Username | Name      | Email              | Password |
+      | testuser | test user | testuser@test.test | 1234     |
+    And I am identified in the system as "testuser" using password "1234"
+    And the following Projects exist in the system
       | Name | Description    |
       | test | a test project |
     And the project "test" has the following Features
