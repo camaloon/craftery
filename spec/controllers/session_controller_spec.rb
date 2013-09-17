@@ -5,7 +5,7 @@ describe SessionController do
   describe "POST 'create'" do
 
     context "User 'test' exists in the database" do
-      let! { create :user, username: 'test', password: 'pass' }
+      let(:user) { create :user, username: 'test', password: 'pass' }
 
       it "Rejects logins with wrong passwords" do
         post 'create', session: {
