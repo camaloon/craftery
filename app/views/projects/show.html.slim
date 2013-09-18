@@ -26,31 +26,54 @@
 
 .row
 
-  .col-md-12
+  .col-md-8
 
     #feature_list
       - resource.features.each do |feature|
         = div_for(feature, class: "panel panel-default") do
           .panel-heading
             h3.panel-title
-              => link_to feature.name.capitalize, project_feature_path(resource, feature)
+              => link_to feature.name.capitalize, feature_path(feature)
               small>
                 | by
                 =< feature.owner.name.titleize
               .badge = feature.state
               .pull-right.right-pulled-header-elm
-                = link_to project_feature_path(resource, feature), method: :delete, title: 'Delete Feature', data: { confirm: "Are you sure?"} do
-                  span.glyphicon.glyphicon-trash
-              .pull-right.right-pulled-header-elm
-                = link_to edit_project_feature_path(resource, feature), title: 'Edit Feature' do
+                = link_to edit_feature_path(feature), title: 'Edit Feature' do
                   span.glyphicon.glyphicon-edit
           .panel-body
             = feature.description
 
-    = link_to new_project_feature_path(resource), class: 'btn btn-default' do
+    = link_to new_project_feature_path(resource), class: 'btn btn-default btn-block' do
       span
         span.glyphicon.glyphicon-plus>
         | New Feature
 
+  .col-md-4
+
+    .panel.panel-primary#personas_list
+
+      .panel-heading
+        h2.panel-title Personas
+
+      ul.list-group
+        - resource.personas.each do |persona|
+          li.list-group-item
+            => persona.name.titleize
+            .pull-right.right-pulled-header-elm
+              = link_to persona_path(persona), method: :delete, title: 'Delete Persona', data: { confirm: "Are you sure?" } do
+                span.glyphicon.glyphicon-trash
+
+        li.list-group-item
+          = link_to new_project_persona_path(resource), class: 'btn btn-default btn-block' do
+            span
+              span.glyphicon.glyphicon-plus>
+              | New Persona
+
+.row
+  .col-md-12
+    / TODO: remove this ugly br!
+    br
     p
-      = link_to "Back to Home", root_path
+      = link_to "Back Home", root_path
+

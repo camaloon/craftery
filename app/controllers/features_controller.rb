@@ -1,6 +1,6 @@
 class FeaturesController < ApplicationController
   inherit_resources
-  belongs_to :project
+  belongs_to :project, :optional => true
   actions :all, except: :index
 
   protected

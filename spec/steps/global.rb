@@ -21,10 +21,23 @@ module Turnip::Steps
     end
   end
 
-  step "I fill/modify the values of the form as follows" do |table|
+  step "I fill/modify the text values of the form as follows" do |table|
     table.hashes.each do |hash|
       fill_in hash['Field'], with: hash['Value']
     end
+  end
+
+  step "I select the following values from the combo boxes of the form" do |table|
+    table.hashes.each do |hash|
+      select hash['Value'], from: hash['Field']
+    end
+  end
+
+  step "the page shows" do |table|
+    table.hashes.each do |hash|
+      page.should have_content hash['Content']
+    end
+
   end
 
   ## Implementation specific ##################################################
@@ -40,7 +53,7 @@ module Turnip::Steps
   ## Helpers ##################################################################
 
   def route_human_name_to_str(route_human_name)
-    route_human_name.titlecase.gsub(/ /, '').underscore + '_path'
+    route_human_name.parameterize.underscore + '_path'
   end
 
 end

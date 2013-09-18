@@ -2,14 +2,19 @@ module UserSteps
 
   ## Preconditions and Actions ################################################
 
-  step "there is a user in the system that has the following data" do |table|
-    user_data = table.hashes.first
-    create :user,
-      username: user_data['Username'],
-      name: user_data['Name'],
-      password: user_data['Password'],
-      password_confirmation: user_data['Password'],
-      email: user_data['Email']
+  step "the following Users exist in the system" do |table|
+    table.hashes.each do |user_data|
+      create_overrides = {}
+      user_data.each do |key, value|
+        key = key.downcase
+        if key == 'password'
+          create_overrides[:password] = create_overrides[:password_confirmation] = value
+        else
+          create_overrides[key.to_sym] = value
+        end
+      end
+      create :user, create_overrides
+    end
   end
 
   step "I am identified in the system as :username using password :password" do |username, password|

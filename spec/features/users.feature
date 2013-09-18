@@ -1,12 +1,12 @@
 Feature: Managing Users
   Background:
-    Given there is a user in the system that has the following data
+    Given the following Users exist in the system
       | Username | Name      | Email             | Password |
       | testusr  | test user | testusr@test.test | 123abc   |
 
   Scenario:
     When I visit the "Signup" Page
-    And  I fill the values of the form as follows
+    And  I fill the text values of the form as follows
       | Field                 | Value                 |
       | * Name                | Test User 2           |
       | * Email               | test.user.2@test.test |
@@ -18,7 +18,7 @@ Feature: Managing Users
 
   Scenario:
     When I visit the "Login" Page
-    And  I fill the values of the form as follows
+    And  I fill the text values of the form as follows
       | Field    | Value   |
       | Username | testusr |
       | Password | 123abc  |

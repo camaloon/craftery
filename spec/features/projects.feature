@@ -1,6 +1,6 @@
 Feature: Managing Projects
   Background:
-    Given there is a user in the system that has the following data
+    Given the following Users exist in the system
       | Username | Name      | Email              | Password |
       | testuser | test user | testuser@test.test | 1234     |
     And I am identified in the system as "testuser" using password "1234"
@@ -34,7 +34,7 @@ Feature: Managing Projects
 
   Scenario:
     When I visit the "New Project" Page
-    And  I fill the values of the form as follows
+    And  I fill the text values of the form as follows
       | Field       | Value         |
       | * Name      | a name        |
     And  I click the "Create Project" link
@@ -54,7 +54,7 @@ Feature: Managing Projects
 
   Scenario:
     When I visit the "Edit Project" Page for Project "test 1"
-    And  I modify the values of the form as follows
+    And  I modify the text values of the form as follows
       | Field       | Value             |
       | * Name      | a new name        |
       | Description | a new description |
