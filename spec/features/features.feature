@@ -33,7 +33,7 @@ Feature: Managing Features
     And  I click the "New Feature" link
     Then the New Feature Form is displayed
 
-#  Scenario:
+  Scenario:
     When I visit the "New Project Feature" Page for Project "test"
     And  I fill the values of the form as follows
       | Field       | Value         |
