@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919120635) do
+ActiveRecord::Schema.define(version: 20130919155414) do
 
   create_table "acceptance_criteria", force: true do |t|
     t.text     "description"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20130919120635) do
     t.integer  "user_story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
+  add_index "acceptance_criteria", ["author_id"], name: "index_acceptance_criteria_on_author_id"
   add_index "acceptance_criteria", ["user_story_id"], name: "index_acceptance_criteria_on_user_story_id"
 
   create_table "business_goals", force: true do |t|
@@ -29,8 +31,10 @@ ActiveRecord::Schema.define(version: 20130919120635) do
     t.integer  "feature_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
+  add_index "business_goals", ["author_id"], name: "index_business_goals_on_author_id"
   add_index "business_goals", ["feature_id"], name: "index_business_goals_on_feature_id"
 
   create_table "features", force: true do |t|
