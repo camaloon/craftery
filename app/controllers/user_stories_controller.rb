@@ -1,6 +1,6 @@
 class UserStoriesController < ApplicationController
   inherit_resources
-  belongs_to :feature, :optional => true
+  belongs_to :feature, optional: true
   actions :all, except: :index
 
   protected
