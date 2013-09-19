@@ -13,6 +13,7 @@
 #
 
 class UserStory < ActiveRecord::Base
+  has_many :acceptance_criteria
   belongs_to :author, class_name: "User"
   belongs_to :persona
   belongs_to :feature
