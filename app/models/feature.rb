@@ -24,7 +24,7 @@ class Feature < ActiveRecord::Base
 
   validates :state, presence: true, inclusion: {
       in: STATES,
-      message: 'should be one of ' + STATES.to_sentence(:last_word_connector => ' or ')
+      message: 'should be one of ' + STATES.to_sentence(last_word_connector: ' or ')
   }
 
   after_initialize { self.state ||= DEFAULT_STATE }

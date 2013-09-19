@@ -8,7 +8,7 @@ class FeaturesController < ApplicationController
   protected
 
   def permitted_params
-    params.permit(:feature => [:name, :description, :state, :project_id])
+    params.permit(feature: [:name, :description, :state, :project_id])
   end
 
   def create_resource(feature)
