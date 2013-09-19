@@ -1,6 +1,5 @@
 = simple_form_for [parent, resource], :html => { role: 'form' } do |f|
-  / TODO: bug here! personas shown should be filtered by project
-  = f.association :persona, required: true, label: 'As a'
+  = f.association :persona, collection: resource.feature.project.personas, required: true, label: 'As a'
   = f.input :desire, required: true, label: 'I want to'
   = f.input :benefit, required: true, label: 'So I'
   = f.button :submit
