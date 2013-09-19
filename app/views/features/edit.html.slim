@@ -7,7 +7,7 @@
   .col-md-4
 
     h1.pull-right
-      = link_to project_feature_path(parent, resource), method: :delete, title: 'Delete Feature', class: 'btn btn-default', data: { confirm: "Are you sure?"} do
+      = link_to resource_path, method: :delete, title: 'Delete Feature', class: 'btn btn-default', data: { confirm: "Are you sure?"} do
         span.glyphicon.glyphicon-trash>
         | Delete
 
@@ -18,4 +18,8 @@
     = render "form"
 
     p
-      = link_to "Back to Project", parent_path
+      => link_to "Back Home", root_path
+      ' |
+      => link_to "Back to Project", project_path(resource.project)
+      ' |
+      => link_to "Show Feature", resource_path

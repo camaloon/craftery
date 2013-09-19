@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130913100415) do
+ActiveRecord::Schema.define(version: 20130917154722) do
 
   create_table "features", force: true do |t|
     t.string   "name"
@@ -26,12 +26,35 @@ ActiveRecord::Schema.define(version: 20130913100415) do
   add_index "features", ["owner_id"], name: "index_features_on_owner_id"
   add_index "features", ["project_id"], name: "index_features_on_project_id"
 
+  create_table "personas", force: true do |t|
+    t.string   "name"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "personas", ["project_id"], name: "index_personas_on_project_id"
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
   end
+
+  create_table "user_stories", force: true do |t|
+    t.integer  "author_id"
+    t.integer  "persona_id"
+    t.text     "desire"
+    t.text     "benefit"
+    t.integer  "feature_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_stories", ["author_id"], name: "index_user_stories_on_author_id"
+  add_index "user_stories", ["feature_id"], name: "index_user_stories_on_feature_id"
+  add_index "user_stories", ["persona_id"], name: "index_user_stories_on_persona_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

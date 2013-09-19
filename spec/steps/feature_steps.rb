@@ -12,7 +12,7 @@ module FeatureSteps
 
   step "I visit the :route_human_name Page for Feature :feature_name" do |route_human_name, feature_name|
     feature = Feature.find_by_name! feature_name
-    visit self.send(route_human_name_to_str(route_human_name), feature.project, feature)
+    visit self.send(route_human_name_to_str(route_human_name), feature)
   end
 
   ## Expectations #############################################################
@@ -29,7 +29,7 @@ module FeatureSteps
     page.should have_content feature.project.name.capitalize
   end
 
-  step "the Project Feature Page displays showing :new_name and :new_description" do |new_name, new_description|
+  step "the Feature Page displays showing :new_name and :new_description" do |new_name, new_description|
     page.should have_content new_name.capitalize
     page.should have_content new_description
   end

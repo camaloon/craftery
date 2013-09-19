@@ -1,0 +1,25 @@
+.row
+
+  .col-md-8
+
+    h1 Edit User Story
+
+  .col-md-4
+
+    h1.pull-right
+      = link_to resource_path, method: :delete, title: 'Delete User Story', class: 'btn btn-default', data: { confirm: "Are you sure?"} do
+        span.glyphicon.glyphicon-trash>
+        | Delete
+
+.row
+
+  .col-md-12
+
+    = render "form"
+
+    p
+      => link_to "Back Home", root_path
+      ' |
+      => link_to "Back to Project", feature_path(resource.feature)
+      ' |
+      => link_to "Show User Story", resource_path
