@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   skip_before_filter :check_user_logged, only: [:new, :create]
 
   def permitted_params
-    params.permit(:user => [:name, :email, :username, :password, :password_confirmation])
+    params.permit(user: [:name, :email, :username, :password, :password_confirmation])
   end
 
   def create

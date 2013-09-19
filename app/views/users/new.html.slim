@@ -4,7 +4,7 @@ p
   ' Already have an account?
   = link_to 'Log in', login_path
 
-= simple_form_for resource, :html => { role: 'form' } do |f|
+= simple_form_for resource, html: { role: 'form' } do |f|
   = f.input :name, required: true
   = f.input :email
   = f.input :username

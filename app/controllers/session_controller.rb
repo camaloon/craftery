@@ -3,7 +3,7 @@ class SessionController < ApplicationController
   skip_before_filter :check_user_logged, only: [:new, :create]
 
   def permitted_params
-    params.permit(:session => [:username, :password])
+    params.permit(session: [:username, :password])
   end
 
   def create
