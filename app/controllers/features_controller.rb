@@ -1,8 +1,6 @@
 class FeaturesController < ApplicationController
   inherit_resources
-
-  belongs_to :project
-
+  belongs_to :project, :optional => true
   actions :all, except: :index
 
   protected
@@ -11,8 +9,8 @@ class FeaturesController < ApplicationController
     params.permit(feature: [:name, :description, :state, :project_id])
   end
 
-  def create_resource(feature)
-    feature.owner = current_user
+  def create_resource(r)
+    r.owner = current_user
     super
   end
 

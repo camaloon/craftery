@@ -1,14 +1,8 @@
 .row
 
-  .col-md-8
+  .col-md-6
 
     h1 Projects
-
-  .col-md-4
-
-.row
-
-  .col-md-8
 
     #project-list
       - @projects.each do |project|
@@ -22,21 +16,10 @@
           .panel-body
             = project.description
 
-    = link_to new_project_path, title: 'New Project', class: 'btn btn-default' do
+    = link_to new_project_path, title: 'New Project', class: 'btn btn-default btn-block' do
       span
         span.glyphicon.glyphicon-plus>
         | New Project
 
-  .col-md-4
+  .col-md-6
 
-    .panel.panel-primary
-      .panel-heading
-        h2.panel-title Manage Users
-      .panel-body
-        | Comming soon...
-
-    .panel.panel-primary
-      .panel-heading
-        h2.panel-title Manage Story Roles
-      .panel-body
-        | Comming soon... in a better place than here ;)

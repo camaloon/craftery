@@ -17,6 +17,7 @@ class Feature < ActiveRecord::Base
   STATES = %w(draft frozen)
   DEFAULT_STATE = 'draft'
 
+  has_many :user_stories
   belongs_to :owner, class_name: "User"
   belongs_to :project
 

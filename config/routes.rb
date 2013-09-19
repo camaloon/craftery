@@ -9,8 +9,13 @@ Craftery::Application.routes.draw do
   get "signup" => 'users#new'
   resources :users, only: [:create]
 
-  resources :projects do
-    resources :features
+  shallow do
+    resources :projects do
+      resources :personas
+      resources :features do
+        resources :user_stories
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

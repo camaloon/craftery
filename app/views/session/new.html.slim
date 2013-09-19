@@ -1,14 +1,28 @@
-h1 Log In
+.row
 
-p
-  ' Don't have an account?
-  = link_to 'Sign up', signup_path
+  .col-md-6
 
-= form_tag login_path, role: 'form' do
-  .form-group
-    label for='session_username' Username
-    input.form-control#session_username name='session[username]'
-  .form-group
-    label for='password' Password
-    input.form-control#password type='password' name='session[password]'
-  button.btn.btn-primary Log in!
+    / TODO: remove this ugly br :p
+    br
+
+    .jumbotron
+      .container
+        h1 Welcome to Craftery!
+        p Here we'll have some other nice content :)
+
+  .col-md-6
+
+    h1 Log In
+
+    p
+      ' Don't have an account?
+      = link_to 'Sign up', signup_path
+
+    = form_tag login_path, role: 'form' do
+      .form-group
+        label for='session_username' Username
+        input.form-control#session_username name='session[username]'
+      .form-group
+        label for='password' Password
+        input.form-control#password type='password' name='session[password]'
+      button.btn.btn-primary Log in!
