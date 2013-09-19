@@ -8,7 +8,7 @@ class PersonasController < ApplicationController
   protected
 
   def permitted_params
-    params.permit(:persona => [:name, :project_id])
+    params.permit(persona: [:name, :project_id])
   end
 
 end

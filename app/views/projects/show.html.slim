@@ -35,7 +35,6 @@
             h3.panel-title
               => link_to feature.name.capitalize, feature_path(feature)
               small>
-                | by
                 =< feature.owner.name.titleize
               .badge = feature.state
               .pull-right.right-pulled-header-elm

@@ -6,9 +6,10 @@ class UserStoriesController < ApplicationController
   protected
 
   alias_method :collection_url, :root_url # TODO: change this to feature_url (param?)
+                                          # TODO: create should redirect to show as update does
 
   def permitted_params
-    params.permit(:user_story => [:author_id, :persona_id, :desire, :benefit, :feature_id])
+    params.permit(user_story: [:author_id, :persona_id, :desire, :benefit, :feature_id])
   end
 
   def create_resource(r)
