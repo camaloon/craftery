@@ -13,7 +13,10 @@ Craftery::Application.routes.draw do
     resources :projects do
       resources :personas
       resources :features do
-        resources :user_stories
+        resources :business_goals
+        resources :user_stories do
+          resources :acceptance_criteria
+        end
       end
     end
   end

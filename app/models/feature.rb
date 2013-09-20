@@ -18,6 +18,7 @@ class Feature < ActiveRecord::Base
   DEFAULT_STATE = 'draft'
 
   has_many :user_stories
+  has_many :business_goals
   belongs_to :owner, class_name: "User"
   belongs_to :project
 

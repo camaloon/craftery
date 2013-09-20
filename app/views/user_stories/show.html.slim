@@ -36,8 +36,6 @@
           br
           strong> So I can
           em => resource.benefit
-        small.pull-right.right-pulled-header-elm
-          = resource.author.name.titleize
 
 .row
 
@@ -45,8 +43,30 @@
 
     h2 Acceptance Criteria
 
-    .well
-      ' Comming soon! :)
+    #user_story_list
+      - resource.acceptance_criteria.each do |acceptance_criterion|
+        = div_for(acceptance_criterion, class: "panel panel-default") do
+          .panel-heading
+            h3.panel-title
+              = link_to acceptance_criterion_path(acceptance_criterion), title: 'Show Acceptance Criterion' do
+                ' AC#{acceptance_criterion.id}
+              small
+                => acceptance_criterion.author.name.titleize
+              .badge = acceptance_criterion.state
+              .pull-right.right-pulled-header-elm
+                = link_to acceptance_criterion_path(acceptance_criterion), method: :delete, title: 'Delete Acceptance Criterion', data: { confirm: "Are you sure?"} do
+                  span.glyphicon.glyphicon-trash
+              .pull-right.right-pulled-header-elm
+                = link_to edit_acceptance_criterion_path(acceptance_criterion), title: 'Edit Acceptance Criterion' do
+                  span.glyphicon.glyphicon-edit
+          .panel-body
+            p
+              = acceptance_criterion.description
+
+    = link_to new_user_story_acceptance_criterion_path(resource), class: 'btn btn-default btn-block' do
+      span
+        span.glyphicon.glyphicon-plus>
+        | New Acceptance Criterion
 
 .row
   .col-md-12
