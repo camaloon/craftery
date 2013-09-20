@@ -1,0 +1,8 @@
+deb http://archive.ubuntu.com/ubuntu <%= release %> main restricted universe
+deb-src http://archive.ubuntu.com/ubuntu <%= release %> main restricted universe
+
+deb http://archive.ubuntu.com/ubuntu <%= release %>-updates main restricted universe
+deb-src http://archive.ubuntu.com/ubuntu <%= release %>-updates main restricted universe
+
+deb http://security.ubuntu.com/ubuntu <%= release %>-security main restricted universe multiverse
+deb-src http://security.ubuntu.com/ubuntu <%= release %>-security main restricted universe multiverse
