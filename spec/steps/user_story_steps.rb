@@ -13,6 +13,7 @@ step "the feature :feature_name has the following User Stories" do |feature_name
     author = User.find_by_username us_data['Author']
     persona = Persona.find_by_name us_data['Persona']
     create :user_story, {
+        id: us_data['id'],
         author: author,
         persona: persona,
         desire: us_data['Desire'],
