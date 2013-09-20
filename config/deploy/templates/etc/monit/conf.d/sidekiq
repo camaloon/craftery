@@ -1,0 +1,6 @@
+check process sidekiq with pidfile /var/www/rails/camaloon.itnig.net/shared/pids/sidekiq.pid
+  start program = "/usr/local/rvm/bin/rvm-shell -c 'cd /var/www/rails/camaloon.itnig.net/current ; nohup bundle exec sidekiq -e production -C /var/www/rails/camaloon.itnig.net/current/config/sidekiq.yml -i 0 -P /var/www/rails/camaloon.itnig.net/current/tmp/pids/sidekiq.pid >> /var/www/rails/camaloon.itnig.net/current/log/sidekiq.log 2>&1 &'"
+    as uid deployer and gid deployer
+  stop program = "/usr/local/rvm/bin/rvm-shell -c 'if [ -d /var/www/rails/camaloon.itnig.net/current ] && [ -f /var/www/rails/camaloon.itnig.net/current/tmp/pids/sidekiq.pid ] && kill -0 `cat /var/www/rails/camaloon.itnig.net/current/tmp/pids/sidekiq.pid`> /dev/null 2>&1; then cd /var/www/rails/camaloon.itnig.net/current && bundle exec sidekiqctl stop /var/www/rails/camaloon.itnig.net/current/tmp/pids/sidekiq.pid 10 ; fi'"
+    as uid deployer and gid deployer
+  if mem usage > 82% for 5 cycles then restart

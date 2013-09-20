@@ -41,10 +41,16 @@ gem 'slim-rails'
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 gem 'hashie'
 
+gem 'puma'
+gem 'activerecord-jdbcpostgresql-adapter'
+
 group :development do
   gem 'annotate', '>=2.5.0'
   gem 'quiet_assets'
   gem 'lipsum'
+  gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'rvm-capistrano'
 end
 
 group :test do
