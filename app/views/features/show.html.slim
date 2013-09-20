@@ -69,9 +69,33 @@
         | New User Story
 
   .col-md-6
+
     h2 Business Goals
-    .well
-      | Comming soon!! :)
+
+    #business_goals_list
+      - resource.business_goals.each do |business_goal|
+        = div_for(business_goal, class: "panel panel-default") do
+          .panel-heading
+            h3.panel-title
+              = link_to business_goal_path(business_goal), title: 'Show Business Goal' do
+                ' BG#{business_goal.id}
+              small
+                => business_goal.author.name.titleize
+              .badge = business_goal.state
+              .pull-right.right-pulled-header-elm
+                = link_to business_goal_path(business_goal), method: :delete, title: 'Delete Business Goal', data: { confirm: "Are you sure?"} do
+                  span.glyphicon.glyphicon-trash
+              .pull-right.right-pulled-header-elm
+                = link_to edit_business_goal_path(business_goal), title: 'Edit Business Goal' do
+                  span.glyphicon.glyphicon-edit
+          .panel-body
+            p
+              = business_goal.description
+
+    = link_to new_feature_business_goal_path(resource), class: 'btn btn-default btn-block' do
+      span
+        span.glyphicon.glyphicon-plus>
+        | New Business Goal
 
 .row
   .col-md-12

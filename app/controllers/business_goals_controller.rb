@@ -1,4 +1,4 @@
-class UserStoriesController < ApplicationController
+class BusinessGoalsController < ApplicationController
   inherit_resources
   belongs_to :feature, optional: true
   actions :all, except: :index
@@ -9,7 +9,7 @@ class UserStoriesController < ApplicationController
                                           # TODO: create should redirect to show as update does
 
   def permitted_params
-    params.permit(user_story: [:author_id, :persona_id, :desire, :benefit, :feature_id])
+    params.permit(business_goal: [:author_id, :description, :state, :feature_id])
   end
 
   def create_resource(r)
