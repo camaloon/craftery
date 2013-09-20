@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130919155414) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "acceptance_criteria", force: true do |t|
     t.text     "description"
     t.string   "state"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20130919155414) do
     t.integer  "author_id"
   end
 
-  add_index "acceptance_criteria", ["author_id"], name: "index_acceptance_criteria_on_author_id"
-  add_index "acceptance_criteria", ["user_story_id"], name: "index_acceptance_criteria_on_user_story_id"
+  add_index "acceptance_criteria", ["author_id"], name: "index_acceptance_criteria_on_author_id", using: :btree
+  add_index "acceptance_criteria", ["user_story_id"], name: "index_acceptance_criteria_on_user_story_id", using: :btree
 
   create_table "business_goals", force: true do |t|
     t.text     "description"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20130919155414) do
     t.integer  "author_id"
   end
 
-  add_index "business_goals", ["author_id"], name: "index_business_goals_on_author_id"
-  add_index "business_goals", ["feature_id"], name: "index_business_goals_on_feature_id"
+  add_index "business_goals", ["author_id"], name: "index_business_goals_on_author_id", using: :btree
+  add_index "business_goals", ["feature_id"], name: "index_business_goals_on_feature_id", using: :btree
 
   create_table "features", force: true do |t|
     t.string   "name"
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 20130919155414) do
     t.string   "state"
   end
 
-  add_index "features", ["owner_id"], name: "index_features_on_owner_id"
-  add_index "features", ["project_id"], name: "index_features_on_project_id"
+  add_index "features", ["owner_id"], name: "index_features_on_owner_id", using: :btree
+  add_index "features", ["project_id"], name: "index_features_on_project_id", using: :btree
 
   create_table "personas", force: true do |t|
     t.string   "name"
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 20130919155414) do
     t.datetime "updated_at"
   end
 
-  add_index "personas", ["project_id"], name: "index_personas_on_project_id"
+  add_index "personas", ["project_id"], name: "index_personas_on_project_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -76,9 +79,9 @@ ActiveRecord::Schema.define(version: 20130919155414) do
     t.datetime "updated_at"
   end
 
-  add_index "user_stories", ["author_id"], name: "index_user_stories_on_author_id"
-  add_index "user_stories", ["feature_id"], name: "index_user_stories_on_feature_id"
-  add_index "user_stories", ["persona_id"], name: "index_user_stories_on_persona_id"
+  add_index "user_stories", ["author_id"], name: "index_user_stories_on_author_id", using: :btree
+  add_index "user_stories", ["feature_id"], name: "index_user_stories_on_feature_id", using: :btree
+  add_index "user_stories", ["persona_id"], name: "index_user_stories_on_persona_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -89,6 +92,6 @@ ActiveRecord::Schema.define(version: 20130919155414) do
     t.string   "email"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
