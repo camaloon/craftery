@@ -21,8 +21,8 @@
   .col-md-12
 
     .panel.panel-default
-      .panel-body
-        = resource.description
+      .panel-body.user-text
+        == Kramdown::Document.new(resource.description).to_html
 
 .row
 
@@ -40,8 +40,8 @@
               .pull-right.right-pulled-header-elm
                 = link_to edit_feature_path(feature), title: 'Edit Feature' do
                   span.glyphicon.glyphicon-edit
-          .panel-body
-            = feature.description
+          .panel-body.user-text
+            == Kramdown::Document.new(feature.description).to_html
 
     = link_to new_project_feature_path(resource), class: 'btn btn-default btn-block' do
       span
