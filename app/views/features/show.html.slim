@@ -27,9 +27,8 @@
             small>
               =< resource.owner.name.titleize
             .badge = resource.state
-      .panel-body
-        p
-          = resource.description
+      .panel-body.user-text
+        = parse_markdown(resource.description)
 
 .row
 
@@ -52,7 +51,7 @@
               .pull-right.right-pulled-header-elm
                 = link_to edit_user_story_path(user_story), title: 'Edit User Story' do
                   span.glyphicon.glyphicon-edit
-          .panel-body
+          .panel-body.user-text
             p
               strong> As a(n)
               em => user_story.persona.name.titleize
@@ -60,7 +59,7 @@
               strong> I want to
               em => user_story.desire
               br
-              strong> So I can
+              strong> So I
               em => user_story.benefit
 
     = link_to new_feature_user_story_path(resource), class: 'btn btn-default btn-block' do
@@ -88,9 +87,8 @@
               .pull-right.right-pulled-header-elm
                 = link_to edit_business_goal_path(business_goal), title: 'Edit Business Goal' do
                   span.glyphicon.glyphicon-edit
-          .panel-body
-            p
-              = business_goal.description
+          .panel-body.user-text
+            = parse_markdown(business_goal.description)
 
     = link_to new_feature_business_goal_path(resource), class: 'btn btn-default btn-block' do
       span
