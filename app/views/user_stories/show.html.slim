@@ -60,7 +60,7 @@
                 = link_to edit_acceptance_criterion_path(acceptance_criterion), title: 'Edit Acceptance Criterion' do
                   span.glyphicon.glyphicon-edit
           .panel-body.user-text
-            == Kramdown::Document.new(acceptance_criterion.description).to_html
+            = parse_markdown(acceptance_criterion.description)
 
     = link_to new_user_story_acceptance_criterion_path(resource), class: 'btn btn-default btn-block' do
       span

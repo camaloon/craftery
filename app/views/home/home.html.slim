@@ -14,7 +14,7 @@
                 = link_to edit_project_path(project), title: 'Edit Project' do
                   span.glyphicon.glyphicon-edit
           .panel-body.user-text
-            == Kramdown::Document.new(project.description).to_html
+            = parse_markdown(project.description)
 
     = link_to new_project_path, title: 'New Project', class: 'btn btn-default btn-block' do
       span

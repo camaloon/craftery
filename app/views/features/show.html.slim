@@ -28,7 +28,7 @@
               =< resource.owner.name.titleize
             .badge = resource.state
       .panel-body.user-text
-        == Kramdown::Document.new(resource.description).to_html
+        = parse_markdown(resource.description)
 
 .row
 
@@ -88,7 +88,7 @@
                 = link_to edit_business_goal_path(business_goal), title: 'Edit Business Goal' do
                   span.glyphicon.glyphicon-edit
           .panel-body.user-text
-            == Kramdown::Document.new(business_goal.description).to_html
+            = parse_markdown(business_goal.description)
 
     = link_to new_feature_business_goal_path(resource), class: 'btn btn-default btn-block' do
       span

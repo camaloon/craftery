@@ -28,7 +28,7 @@
             => resource.author.name.titleize
           .badge = resource.state
       .panel-body.user-text
-        == Kramdown::Document.new(resource.description).to_html
+        = parse_markdown(resource.description)
 
 .row
   .col-md-12

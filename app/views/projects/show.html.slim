@@ -22,7 +22,7 @@
 
     .panel.panel-default
       .panel-body.user-text
-        == Kramdown::Document.new(resource.description).to_html
+        = parse_markdown(resource.description)
 
 .row
 
@@ -41,7 +41,7 @@
                 = link_to edit_feature_path(feature), title: 'Edit Feature' do
                   span.glyphicon.glyphicon-edit
           .panel-body.user-text
-            == Kramdown::Document.new(feature.description).to_html
+            = parse_markdown(feature.description)
 
     = link_to new_project_feature_path(resource), class: 'btn btn-default btn-block' do
       span
