@@ -42,7 +42,7 @@
           .panel-heading
             h3.panel-title
               = link_to user_story_path(user_story), title: 'Show User Story' do
-                ' US#{user_story.id}
+                => user_story.code
               small
                 = user_story.author.name.titleize
               .pull-right.right-pulled-header-elm

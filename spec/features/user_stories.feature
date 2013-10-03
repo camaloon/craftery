@@ -16,9 +16,9 @@ Feature: Managing User Stories
       | User  |
       | Admin |
     And the feature "mind blowness" has the following User Stories
-      | Author | Persona | Desire                        | Benefit               | id |
-      | juan   | User    | see important buttons in blue | spot them at a glance | 1  |
-      | juan   | Admin   | delete abusing users          | blow their minds ;p   | 2  |
+      | Author | Persona | Desire                        | Benefit               | Code |
+      | juan   | User    | see important buttons in blue | spot them at a glance | US1  |
+      | juan   | Admin   | delete abusing users          | blow their minds ;p   | US2  |
 
 # TODO: Test User Story list (see also features and project)
 

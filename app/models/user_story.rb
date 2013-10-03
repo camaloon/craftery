@@ -2,14 +2,15 @@
 #
 # Table name: user_stories
 #
-#  id         :integer          not null, primary key
-#  author_id  :integer
-#  persona_id :integer
-#  desire     :text
-#  benefit    :text
-#  feature_id :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id            :integer          not null, primary key
+#  author_id     :integer
+#  persona_id    :integer
+#  desire        :text
+#  benefit       :text
+#  feature_id    :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  contextual_id :integer
 #
 
 class UserStory < ActiveRecord::Base
@@ -18,5 +19,12 @@ class UserStory < ActiveRecord::Base
   belongs_to :persona
   belongs_to :feature
 
+  CODE_PREFIX = 'US'
+
   validates_presence_of :author, :persona, :desire, :benefit, :feature
+
+  def code
+    code_id = read_attribute(:contextual_id) ? read_attribute(:contextual_id) : read_attribute(:id)
+    CODE_PREFIX + code_id.to_s
+  end
 end
