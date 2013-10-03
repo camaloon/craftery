@@ -2,14 +2,15 @@
 #
 # Table name: user_stories
 #
-#  id         :integer          not null, primary key
-#  author_id  :integer
-#  persona_id :integer
-#  desire     :text
-#  benefit    :text
-#  feature_id :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id            :integer          not null, primary key
+#  author_id     :integer
+#  persona_id    :integer
+#  desire        :text
+#  benefit       :text
+#  feature_id    :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  contextual_id :integer
 #
 
 require 'spec_helper'

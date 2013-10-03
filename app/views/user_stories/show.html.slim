@@ -23,7 +23,7 @@
     .panel.panel-default
       .panel-heading
         h3.panel-title
-          ' US#{resource.id}
+          => resource.code
           small
             = resource.author.name.titleize
       .panel-body.user-text
