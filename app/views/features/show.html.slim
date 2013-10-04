@@ -34,33 +34,32 @@
 
   .col-md-6
 
-    h2 User stories
+    h2 User Stories
 
     #user_story_list
-      - resource.user_stories.each do |user_story|
-        = div_for(user_story, class: "panel panel-default") do
-          .panel-heading
-            h3.panel-title
-              = link_to user_story_path(user_story), title: 'Show User Story' do
-                ' US#{user_story.id}
-              small
-                = user_story.author.name.titleize
-              .pull-right.right-pulled-header-elm
-                = link_to user_story_path(user_story), method: :delete, title: 'Delete User Story', data: { confirm: "Are you sure?"} do
-                  span.glyphicon.glyphicon-trash
-              .pull-right.right-pulled-header-elm
-                = link_to edit_user_story_path(user_story), title: 'Edit User Story' do
-                  span.glyphicon.glyphicon-edit
-          .panel-body.user-text
-            p
-              strong> As a(n)
-              em => user_story.persona.name.titleize
-              br
-              strong> I want to
-              em => user_story.desire
-              br
-              strong> So I
-              em => user_story.benefit
+      = div_for(resource.user_stories, class: 'panel panel-default') do |user_story|
+        .panel-heading
+          h3.panel-title
+            = link_to user_story_path(user_story), title: 'Show User Story' do
+              ' US#{user_story.id}
+            small
+              = user_story.author.name.titleize
+            .pull-right.right-pulled-header-elm
+              = link_to user_story_path(user_story), method: :delete, title: 'Delete User Story', data: { confirm: "Are you sure?"} do
+                span.glyphicon.glyphicon-trash
+            .pull-right.right-pulled-header-elm
+              = link_to edit_user_story_path(user_story), title: 'Edit User Story' do
+                span.glyphicon.glyphicon-edit
+        .panel-body.user-text
+          p
+            strong> As a(n)
+            em => user_story.persona.name.titleize
+            br
+            strong> I want to
+            em => user_story.desire
+            br
+            strong> So I
+            em => user_story.benefit
 
     = link_to new_feature_user_story_path(resource), class: 'btn btn-default btn-block' do
       span
@@ -72,23 +71,22 @@
     h2 Business Goals
 
     #business_goals_list
-      - resource.business_goals.each do |business_goal|
-        = div_for(business_goal, class: "panel panel-default") do
-          .panel-heading
-            h3.panel-title
-              = link_to business_goal_path(business_goal), title: 'Show Business Goal' do
-                ' BG#{business_goal.id}
-              small
-                => business_goal.author.name.titleize
-              .badge = business_goal.state
-              .pull-right.right-pulled-header-elm
-                = link_to business_goal_path(business_goal), method: :delete, title: 'Delete Business Goal', data: { confirm: "Are you sure?"} do
-                  span.glyphicon.glyphicon-trash
-              .pull-right.right-pulled-header-elm
-                = link_to edit_business_goal_path(business_goal), title: 'Edit Business Goal' do
-                  span.glyphicon.glyphicon-edit
-          .panel-body.user-text
-            = parse_markdown(business_goal.description)
+      = div_for(resource.business_goals, class: "panel panel-default") do |business_goal|
+        .panel-heading
+          h3.panel-title
+            = link_to business_goal_path(business_goal), title: 'Show Business Goal' do
+              ' BG#{business_goal.id}
+            small
+              => business_goal.author.name.titleize
+            .badge = business_goal.state
+            .pull-right.right-pulled-header-elm
+              = link_to business_goal_path(business_goal), method: :delete, title: 'Delete Business Goal', data: { confirm: "Are you sure?"} do
+                span.glyphicon.glyphicon-trash
+            .pull-right.right-pulled-header-elm
+              = link_to edit_business_goal_path(business_goal), title: 'Edit Business Goal' do
+                span.glyphicon.glyphicon-edit
+        .panel-body.user-text
+          = parse_markdown(business_goal.description)
 
     = link_to new_feature_business_goal_path(resource), class: 'btn btn-default btn-block' do
       span
