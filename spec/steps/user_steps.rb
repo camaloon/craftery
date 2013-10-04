@@ -24,7 +24,3 @@
     click_on 'Log in!'
     page.should_not have_content 'Warning: There was a problem logging you in.' # Sanity check
   end
-
-  step "I should be informed that I successfully logged in" do
-    page.should have_content 'Log out'
-  end

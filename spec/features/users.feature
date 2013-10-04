@@ -1,32 +1,35 @@
 Feature: Managing Users
+
   Background:
     Given the following Users exist in the system
-      | Username | Name      | Email             | Password |
-      | testusr  | test user | testusr@test.test | 123abc   |
+      | Username | Name         | Email         | Password |
+      | paco     | paco pruebas | paco@test.com | 1234     |
 
   Scenario:
     When I visit the "Signup" Page
     And  I fill the text values of the form as follows
-      | Field                 | Value                 |
-      | * Name                | Test User 2           |
-      | * Email               | test.user.2@test.test |
-      | * Username            | testusr2              |
-      | * Password            | 1234abcd              |
-      | Password confirmation | 1234abcd              |
-    And  I click the "Sign up!" link
+      | Field                 | Value         |
+      | * Name                | pepe trueno   |
+      | * Email               | pepe@test.com |
+      | * Username            | pepet         |
+      | * Password            | 1234abcd      |
+      | Password confirmation | 1234abcd      |
+    And  I click on "Sign up!"
     Then the system informs me of the operation's success stating "User was successfully created."
 
   Scenario:
     When I visit the "Login" Page
     And  I fill the text values of the form as follows
-      | Field    | Value   |
-      | Username | testusr |
-      | Password | 123abc  |
-    And  I click the "Log in!" link
-    Then I should be informed that I successfully logged in
+      | Field    | Value |
+      | Username | paco  |
+      | Password | 1234  |
+    And  I click on "Log in!"
+    Then the page shows
+      | Content |
+      | Log out |
 
   Scenario:
-    Given I am identified in the system as "testusr" using password "123abc"
-    When I visit the "Root" Page
-    And  I click the "Log out" link
-    Then the system informs me of the operation's success stating "You just logged out."
+    Given I am identified in the system as "paco" using password "1234"
+    When  I visit the "Root" Page
+    And   I click on "Log out"
+    Then  the system informs me of the operation's success stating "You just logged out."
