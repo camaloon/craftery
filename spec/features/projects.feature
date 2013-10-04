@@ -1,75 +1,94 @@
 Feature: Managing Projects
+
   Background:
     Given the following Users exist in the system
-      | Username | Name      | Email              | Password |
-      | testuser | test user | testuser@test.test | 1234     |
-    And I am identified in the system as "testuser" using password "1234"
-    Given the following Projects exist in the system
-      | Name   | Description                |
-      | test 1 | test project 1 description |
-      | test 2 | test project 2 description |
+      | Username | Name         | Password |
+      | paco     | paco pruebas | 1234     |
+    And I am identified in the system as "paco" using password "1234"
+    And the following Projects exist in the system
+      | Name       | Description                        |
+      | craftery   | a really cool project!             |
+      | worldfixer | fix the world with just one click! |
 
 # Home page
 
   Scenario:
     When I visit the "Root" Page
-    Then the following Projects should be displayed in a list
-      | Name   | Description                |
-      | test 1 | test project 1 description |
-      | test 2 | test project 2 description |
+    Then the page shows
+      | Content                            |
+      | Craftery                           |
+      | a really cool project!             |
+      | Worldfixer                         |
+      | fix the world with just one click! |
 
-  # Project Details
-
-  Scenario:
-    When I visit the "Root" Page
-    And  I click the "Test 1" Link for Project "test 1" in the List
-    Then the "test 1" Project's Details are displayed
-
-  # New Project
+# Project Details
 
   Scenario:
     When I visit the "Root" Page
-    And  I click the "New Project" link
-    Then the New Project Form is displayed
+    And  I click on "Craftery" for Project "craftery" in the List
+    Then the page shows
+      | Content                |
+      | Craftery               |
+      | a really cool project! |
+      | Personas               |
+
+# New Project
+
+  Scenario:
+    When I visit the "Root" Page
+    And  I click on "New Project"
+    Then a form with the following fields is displayed
+      | Field       |
+      | * Name      |
+      | Description |
 
   Scenario:
     When I visit the "New Project" Page
     And  I fill the text values of the form as follows
-      | Field       | Value         |
-      | * Name      | a name        |
-    And  I click the "Create Project" link
+      | Field  | Value  |
+      | * Name | a name |
+    And  I click on "Create Project"
     Then the system informs me of the operation's success stating "Project was successfully created."
 
-  # Edit Project
+# Edit Project
 
   Scenario:
     When I visit the "Root" Page
-    And  I click the "Edit Project" Link for Project "test 1" in the List
-    Then the Edit Project Form is displayed populated with the values for Project "test 1"
+    And  I click on "Edit Project" for Project "craftery" in the List
+    Then a form with the following fields is displayed
+      | Field       | Value                  |
+      | * Name      | craftery               |
+      | Description | a really cool project! |
 
   Scenario:
-    When I visit the "Project" Page for Project "test 1"
-    And  I click the "Edit" link
-    Then the Edit Project Form is displayed populated with the values for Project "test 1"
+    When I visit the "Project" Page for Project "craftery"
+    And  I click on "Edit"
+    Then a form with the following fields is displayed
+      | Field       | Value                  |
+      | * Name      | craftery               |
+      | Description | a really cool project! |
 
   Scenario:
-    When I visit the "Edit Project" Page for Project "test 1"
+    When I visit the "Edit Project" Page for Project "craftery"
     And  I modify the text values of the form as follows
       | Field       | Value             |
       | * Name      | a new name        |
       | Description | a new description |
-    And  I click the "Update Project" link
+    And  I click on "Update Project"
     Then the system informs me of the operation's success stating "Project was successfully updated."
-    And  the Project Page displays showing "a new name" and "a new description"
+    And  the page shows
+      | Content           |
+      | A new name        |
+      | a new description |
 
-  # Delete Project
+# Delete Project
 
   Scenario:
-    When I visit the "Project" Page for Project "test 1"
-    And  I click the "Delete" link
+    When I visit the "Project" Page for Project "craftery"
+    And  I click on "Delete"
     Then the system informs me of the operation's success stating "Project was successfully destroyed."
 
   Scenario:
-    When I visit the "Edit Project" Page for Project "test 1"
-    And  I click the "Delete" link
+    When I visit the "Edit Project" Page for Project "craftery"
+    And  I click on "Delete"
     Then the system informs me of the operation's success stating "Project was successfully destroyed."
