@@ -1,23 +1,15 @@
+= render 'breadcrumb'
+
 .row
-
   .col-md-8
-
     h1 Edit Project
 
   .col-md-4
-
     h1.pull-right
       = link_to project_path(resource), method: :delete, title: 'Delete Project', class: 'btn btn-default', data: { confirm: "Are you sure?"} do
         span.glyphicon.glyphicon-trash>
         | Delete
 
 .row
-
   .col-md-12
-
     = render "form"
-
-    p
-      => link_to "Back Home", root_path
-      ' |
-      => link_to "Show Project", resource_path

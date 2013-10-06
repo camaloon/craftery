@@ -1,47 +1,14 @@
-.row
+= render 'breadcrumb'
 
+h1 Project
+= render resource
+
+.row
   .col-md-8
-
-    h1
-      => resource.name.capitalize
-
-  .col-md-4
-
-    h1.pull-right
-      .btn-toolbar
-        = link_to edit_resource_path, class: 'btn btn-default' do
-          span.glyphicon.glyphicon-edit>
-          | Edit
-        = link_to resource_path, method: :delete, class: 'btn btn-default', data: { confirm: "Are you sure?"} do
-          span.glyphicon.glyphicon-trash>
-          | Delete
-
-.row
-
-  .col-md-12
-
-    .panel.panel-default
-      .panel-body.user-text
-        = parse_markdown(resource.description)
-
-.row
-
-  .col-md-8
-
+    h2 Features
     #feature_list
       - resource.features.each do |feature|
-        = div_for(feature, class: "panel panel-default") do
-          .panel-heading
-            h3.panel-title
-              => link_to feature.name.capitalize, feature_path(feature)
-              small>
-                =< feature.owner.name.titleize
-              .badge = feature.state
-              .pull-right.right-pulled-header-elm
-                = link_to edit_feature_path(feature), title: 'Edit Feature' do
-                  span.glyphicon.glyphicon-edit
-          .panel-body.user-text
-            = parse_markdown(feature.description)
+        = render feature
 
     = link_to new_project_feature_path(resource), class: 'btn btn-default btn-block' do
       span
@@ -49,9 +16,7 @@
         | New Feature
 
   .col-md-4
-
     .panel.panel-primary#personas_list
-
       .panel-heading
         h2.panel-title Personas
 
@@ -62,17 +27,12 @@
             .pull-right.right-pulled-header-elm
               = link_to persona_path(persona), method: :delete, title: 'Delete Persona', data: { confirm: "Are you sure?" } do
                 span.glyphicon.glyphicon-trash
+            .pull-right.right-pulled-header-elm
+              = link_to edit_persona_path(persona), title: 'Edit Persona' do
+                span.glyphicon.glyphicon-edit
 
         li.list-group-item
           = link_to new_project_persona_path(resource), class: 'btn btn-default btn-block' do
             span
               span.glyphicon.glyphicon-plus>
               | New Persona
-
-.row
-  .col-md-12
-    / TODO: remove this ugly br!
-    br
-    p
-      = link_to "Back Home", root_path
-
