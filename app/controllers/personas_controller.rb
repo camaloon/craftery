@@ -1,6 +1,6 @@
 class PersonasController < ApplicationController
   inherit_resources
-  belongs_to :project, :optional => true
+  belongs_to :project, optional: true
   actions :all, except: [:index, :show]
 
   # TODO: delete should redirect to parent project
