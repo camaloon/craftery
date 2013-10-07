@@ -84,11 +84,6 @@ Feature: Managing Projects
 # Delete Project
 
   Scenario:
-    When I visit the "Project" Page for Project "craftery"
-    And  I click on "Delete"
-    Then the system informs me of the operation's success stating "Project was successfully destroyed."
-
-  Scenario:
     When I visit the "Edit Project" Page for Project "craftery"
     And  I click on "Delete"
     Then the system informs me of the operation's success stating "Project was successfully destroyed."

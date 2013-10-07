@@ -1,0 +1,12 @@
+ol.breadcrumb
+  - user_story = resource.user_story
+  - feature = user_story.feature
+  - project = feature.project
+  li
+    = link_to 'Home', root_path
+  li
+    = link_to project.name.capitalize, project
+  li
+    = link_to feature.name.capitalize, feature
+  li
+    = link_to user_story.to_s, user_story

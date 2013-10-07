@@ -1,25 +1,15 @@
+= render 'breadcrumb'
+
 .row
-
   .col-md-8
-
     h1 Edit Acceptance Criterion
 
   .col-md-4
-
     h1.pull-right
       = link_to resource_path, method: :delete, title: 'Delete Acceptance Criterion', class: 'btn btn-default', data: { confirm: "Are you sure?"} do
         span.glyphicon.glyphicon-trash>
         | Delete
 
 .row
-
   .col-md-12
-
     = render "form"
-
-    p
-      => link_to "Back Home", root_path
-      ' |
-      => link_to "Back to User Story", user_story_path(resource.user_story)
-      ' |
-      => link_to "Show Acceptance Criterion", resource_path

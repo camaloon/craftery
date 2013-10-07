@@ -1,0 +1,9 @@
+= div_for(project, class: "panel panel-default") do
+  .panel-heading
+    h3.panel-title
+      = link_to project.name.capitalize, project_path(project)
+      .pull-right.right-pulled-header-elm
+        = link_to edit_project_path(project), title: 'Edit Project' do
+          span.glyphicon.glyphicon-edit
+  .panel-body.user-text
+    = parse_markdown(project.description)
