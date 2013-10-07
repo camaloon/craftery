@@ -28,4 +28,8 @@ class AcceptanceCriterion < ActiveRecord::Base
 
   after_initialize { self.state ||= DEFAULT_STATE }
 
+  def code
+    "AC#{self[:id]}"
+  end
+
 end

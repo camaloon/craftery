@@ -19,4 +19,12 @@ class UserStory < ActiveRecord::Base
   belongs_to :feature
 
   validates_presence_of :author, :persona, :desire, :benefit, :feature
+
+  def code
+     "US#{self[:id]}"
+  end
+
+  def to_s(length = 40)
+    "#{code}: As a(n) #{self.persona} I want to #{self[:desire]}".truncate(length)
+  end
 end

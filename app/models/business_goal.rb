@@ -28,4 +28,8 @@ class BusinessGoal < ActiveRecord::Base
 
   after_initialize { self.state ||= DEFAULT_STATE }
 
+  def code
+    "BG#{self[:id]}"
+  end
+
 end

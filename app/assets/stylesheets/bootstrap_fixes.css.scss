@@ -1,7 +1,6 @@
-// Leave space for .navbar-fixed-top
-// See http://getbootstrap.com/components/#navbar-fixed-top
 body {
-  padding-top: 50px;
+  // Leave space for .navbar-fixed-top
+  padding-top: 60px;
 }
 
 // HACK: Part of the hacks made to support Bootstrap3 with SimpleForm 3.0.0.rc
@@ -9,11 +8,9 @@ body {
 form.simple_form {
   margin-bottom: 20px;
 }
-
 form.simple_form input.btn {
   margin-top: 20px;
 }
-
 form.simple_form label.control-label {
   margin-top: 20px;
 }
