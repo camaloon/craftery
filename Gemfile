@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.5'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -21,7 +19,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -29,47 +27,25 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'kramdown'
 gem 'inherited_resources'
 gem 'kaminari'
-gem 'simple_form', '3.0.0.rc'
+gem 'simple_form', '3.1.0.rc2'
 gem 'slim-rails'
-gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
+gem 'bootstrap-sass'
 gem 'hashie'
-gem 'puma'
-
-gem 'pg', platforms: :mri
-gem 'activerecord-jdbcpostgresql-adapter', platforms: :jruby
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
+gem 'pg'
 
 group :development do
-  gem 'annotate', '>=2.5.0'
-  gem 'quiet_assets'
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'rvm-capistrano'
-
-  # Not JRuby compatible
-  gem 'binding_of_caller'
-  gem 'better_errors'
-  gem 'pry-debugger'
-  gem 'pry-rescue'
-  gem 'pry-stack_explorer'
-  gem 'pry-coolline'
-end
-
-group :development, :test do
-  gem 'pry-rails'
+  gem 'spring'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'thin'
 end
 
 group :test do
   gem 'capybara'
-  gem 'rspec-rails', '~> 2.0'
-  gem 'turnip', :git => 'git://github.com/runtastic/turnip.git' # using this JRuby compatible fork: https://github.com/jnicklas/turnip/issues/100
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'timecop'
-  gem 'fuubar'
 end
