@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe SessionController do
   describe "POST 'create'" do
     context "User 'test' exists in the database" do
