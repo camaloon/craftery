@@ -2,14 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module Craftery
-
-  mattr_accessor :credentials_config
-
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -23,19 +18,6 @@ module Craftery
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
-    # don't generate RSpec tests for views and helpers since we're using turnip
-    config.generators do |g|
-      g.test_framework :rspec, fixture: true
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
-      g.view_specs false
-      g.helper_specs false
-    end
-
     config.autoload_paths += %W(#{config.root}/lib)
-
-    config.before_initialize do
-      Craftery.credentials_config = Hashie::Mash.new(YAML.load_file(File.expand_path("config/credentials.yml"))[Rails.env])
-    end
   end
-
 end
