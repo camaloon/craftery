@@ -11,5 +11,4 @@ class UsersController < ApplicationController
     create! { root_url }
     session[:user_id] = @user.id
   end
-
 end
