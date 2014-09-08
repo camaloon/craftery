@@ -1,4 +1,4 @@
-= simple_form_for [parent, resource], html: { role: 'form' } do |f|
+= simple_form_for [current_project, parent, resource], html: { role: 'form' } do |f|
   = f.association :persona, collection: resource.feature.project.personas, required: true, label: 'As a(n)'
   = f.input :desire, required: true, label: 'I want to'
   = f.input :benefit, required: true, label: 'So I'

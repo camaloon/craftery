@@ -1,35 +1,14 @@
-= render 'breadcrumb'
-
-h1
-  ' Feature
-
-  .pull-right
-    .btn-toolbar
-      = link_to resource_path, method: :delete, class: 'btn btn-default', data: { confirm: "Are you sure?"} do
-        span.glyphicon.glyphicon-trash>
-        | Delete
-
 = render resource
 
 .row
-  .col-md-6
+  .col-md-12
     h2 User Stories
     #user_story_list
       - resource.user_stories.each do |user_story|
         = render user_story
 
-    = link_to new_feature_user_story_path(resource), class: 'btn btn-default btn-block' do
+    = link_to new_project_feature_user_story_path(current_project, resource), class: 'btn btn-default btn-block' do
       span
         span.glyphicon.glyphicon-plus>
         | New User Story
 
-  .col-md-6
-    h2 Business Goals
-    #business_goals_list
-      - resource.business_goals.each do |business_goal|
-        = render business_goal
-
-    = link_to new_feature_business_goal_path(resource), class: 'btn btn-default btn-block' do
-      span
-        span.glyphicon.glyphicon-plus>
-        | New Business Goal

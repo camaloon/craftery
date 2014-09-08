@@ -1,12 +1,14 @@
 = div_for(feature, class: "panel panel-default") do
   .panel-heading
     h3.panel-title
-      => link_to feature.name.capitalize, feature_path(feature)
+      => link_to feature.name.capitalize, project_feature_path(feature.project, feature)
       small>
         =< feature.owner.name.titleize
       .badge = feature.state
       .pull-right.right-pulled-header-elm
-        = link_to edit_feature_path(feature), title: 'Edit Feature' do
+        = link_to edit_project_feature_path(feature.project, feature), title: 'Edit Feature' do
           span.glyphicon.glyphicon-edit
+        = link_to [feature.project, feature], method: :delete, data: { confirm: "Are you sure?"} do
+          span.glyphicon.glyphicon-trash>
   .panel-body.user-text
     = parse_markdown(feature.description)

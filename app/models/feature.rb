@@ -1,24 +1,8 @@
-# == Schema Information
-#
-# Table name: features
-#
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  description :text
-#  owner_id    :integer
-#  project_id  :integer
-#  created_at  :datetime
-#  updated_at  :datetime
-#  state       :string(255)
-#
-
 class Feature < ActiveRecord::Base
-
   STATES = %w(draft frozen)
   DEFAULT_STATE = 'draft'
 
   has_many :user_stories
-  has_many :business_goals
   belongs_to :owner, class_name: "User"
   belongs_to :project
 
@@ -30,5 +14,4 @@ class Feature < ActiveRecord::Base
   }
 
   after_initialize { self.state ||= DEFAULT_STATE }
-
 end

@@ -1,14 +1,11 @@
 class PersonasController < ApplicationController
   inherit_resources
-  belongs_to :project, optional: true
-  actions :all, except: [:index, :show]
-
-  # TODO: delete should redirect to parent project
+  belongs_to :project
+  actions :all, except: [:show, :destroy]
 
   protected
 
   def permitted_params
-    params.permit(persona: [:name, :project_id])
+    params.permit(persona: [:name])
   end
-
 end
