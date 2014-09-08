@@ -1,16 +1,3 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id              :integer          not null, primary key
-#  name            :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
-#  username        :string(255)
-#  password_digest :string(255)
-#  email           :string(255)
-#
-
 class User < ActiveRecord::Base
   has_many :features, foreign_key: :owner_id, inverse_of: :owner
   has_many :user_stories, foreign_key: :author_id, inverse_of: :author
