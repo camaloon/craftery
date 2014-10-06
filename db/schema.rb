@@ -11,34 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919155414) do
+ActiveRecord::Schema.define(version: 20140908222125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "acceptance_criteria", force: true do |t|
-    t.text     "description"
-    t.string   "state"
-    t.integer  "user_story_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "author_id"
-  end
-
-  add_index "acceptance_criteria", ["author_id"], name: "index_acceptance_criteria_on_author_id", using: :btree
-  add_index "acceptance_criteria", ["user_story_id"], name: "index_acceptance_criteria_on_user_story_id", using: :btree
-
-  create_table "business_goals", force: true do |t|
-    t.text     "description"
-    t.string   "state"
-    t.integer  "feature_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "author_id"
-  end
-
-  add_index "business_goals", ["author_id"], name: "index_business_goals_on_author_id", using: :btree
-  add_index "business_goals", ["feature_id"], name: "index_business_goals_on_feature_id", using: :btree
 
   create_table "features", force: true do |t|
     t.string   "name"

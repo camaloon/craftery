@@ -12,6 +12,14 @@ html lang="en"
         .navbar-header
           = link_to "Craftery", root_path, class: "navbar-brand"
 
+        - if current_project
+          .navbar-body
+            ul.nav.navbar-nav
+              li = link_to current_project.name, project_path(current_project)
+              li = link_to "Personas", project_personas_path(current_project)
+              li = link_to "Settings", edit_project_path(current_project)
+
+
         ul.nav.navbar-nav.navbar-right
           li
             - if logged_in?

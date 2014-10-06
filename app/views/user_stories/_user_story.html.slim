@@ -1,15 +1,15 @@
 = div_for(user_story, class: 'panel panel-default')
   .panel-heading
     h3.panel-title
-      = link_to user_story_path(user_story), title: 'Show User Story' do
+      = link_to project_feature_user_story_path(current_project, user_story.feature, user_story), title: 'Show User Story' do
         => user_story.code
       small
         = user_story.author.name.titleize
       .pull-right.right-pulled-header-elm
-        = link_to user_story_path(user_story), method: :delete, title: 'Delete User Story', data: { confirm: "Are you sure?"} do
+        = link_to project_feature_user_story_path(current_project, user_story.feature, user_story), method: :delete, title: 'Delete User Story', data: { confirm: "Are you sure?"} do
           span.glyphicon.glyphicon-trash
       .pull-right.right-pulled-header-elm
-        = link_to edit_user_story_path(user_story), title: 'Edit User Story' do
+        = link_to edit_project_feature_user_story_path(current_project, user_story.feature, user_story), title: 'Edit User Story' do
           span.glyphicon.glyphicon-edit
   .panel-body.user-text
     p
