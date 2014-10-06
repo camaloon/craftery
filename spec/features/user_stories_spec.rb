@@ -7,7 +7,7 @@ feature "User stories" do
 
   feature "Creation" do
     scenario do
-      visit new_feature_user_story_path(feature)
+      visit new_project_feature_user_story_path(project, feature)
 
       select "Marketer", from: "As a(n)"
       fill_in "I want to", with: "feature action"
@@ -22,7 +22,7 @@ feature "User stories" do
     given!(:user_story) { create :user_story, feature: feature }
 
     scenario do
-      visit edit_user_story_path(user_story)
+      visit edit_project_feature_user_story_path(project, feature, user_story)
       select "Marketer", from: "As a(n)"
       fill_in "So I", with: "A new value"
       click_on "Update User story"
@@ -35,7 +35,7 @@ feature "User stories" do
     given!(:user_story) { create :user_story, feature: feature }
 
     scenario do
-      visit user_story_path(user_story)
+      visit project_feature_user_story_path(project, feature, user_story)
       find("a[title='Delete User Story']").click
       page.should have_text "User story was successfully destroyed."
     end

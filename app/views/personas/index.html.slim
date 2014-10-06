@@ -1,0 +1,18 @@
+.col-md-12
+  .panel.panel-primary#personas_list
+    .panel-heading
+      h2.panel-title Personas
+
+    ul.list-group
+      - collection.each do |persona|
+        li.list-group-item
+          => persona.name.titleize
+          .pull-right.right-pulled-header-elm
+            = link_to edit_project_persona_path(parent, persona), title: 'Edit Persona' do
+              span.glyphicon.glyphicon-edit
+
+      li.list-group-item
+        = link_to new_project_persona_path(parent), class: 'btn btn-default btn-block' do
+          span
+            span.glyphicon.glyphicon-plus>
+            | New Persona

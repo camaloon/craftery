@@ -10,5 +10,4 @@ class ProjectsController < ApplicationController
   def permitted_params
     params.permit(project: [:name, :description])
   end
-
 end

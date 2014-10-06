@@ -1,10 +1,5 @@
-= render 'breadcrumb'
-
-h1 Project
-= render resource
-
 .row
-  .col-md-8
+  .col-md-12
     h2 Features
     #feature_list
       - resource.features.each do |feature|
@@ -15,24 +10,3 @@ h1 Project
         span.glyphicon.glyphicon-plus>
         | New Feature
 
-  .col-md-4
-    .panel.panel-primary#personas_list
-      .panel-heading
-        h2.panel-title Personas
-
-      ul.list-group
-        - resource.personas.each do |persona|
-          li.list-group-item
-            => persona.name.titleize
-            .pull-right.right-pulled-header-elm
-              = link_to persona_path(persona), method: :delete, title: 'Delete Persona', data: { confirm: "Are you sure?" } do
-                span.glyphicon.glyphicon-trash
-            .pull-right.right-pulled-header-elm
-              = link_to edit_persona_path(persona), title: 'Edit Persona' do
-                span.glyphicon.glyphicon-edit
-
-        li.list-group-item
-          = link_to new_project_persona_path(resource), class: 'btn btn-default btn-block' do
-            span
-              span.glyphicon.glyphicon-plus>
-              | New Persona

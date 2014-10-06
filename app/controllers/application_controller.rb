@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   end
   before_filter :check_user_logged
 
+  def current_project
+    @current_project ||= Project.find params[:project_id] if params[:project_id]
+  end
+  helper_method :current_project
 end

@@ -1,4 +1,4 @@
-feature "Features management" do
+feature "Features management", js: true do
   background { sign_in }
 
   feature "Creation" do
@@ -22,7 +22,7 @@ feature "Features management" do
     given!(:feature) { create :feature, project: project }
 
     scenario do
-      visit edit_feature_path(feature)
+      visit edit_project_feature_path(project, feature)
       fill_in "Name", with: "New name"
       fill_in "Description", with: "New description"
       click_on "Update Feature"
@@ -35,8 +35,10 @@ feature "Features management" do
     given!(:feature) { create :feature, project: project }
 
     scenario do
-      visit feature_path(feature)
-      click_on "Delete"
+      visit project_feature_path(project, feature)
+      within(".feature") do
+        find(".glyphicon-trash").click
+      end
       page.should have_text "Feature was successfully destroyed."
     end
   end

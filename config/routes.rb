@@ -5,17 +5,14 @@ Craftery::Application.routes.draw do
   delete "logout" => 'session#destroy'
 
   get "signup" => 'users#new'
+
   resources :users, only: [:create]
 
-  shallow do
-    resources :projects do
-      resources :personas
-      resources :features do
-        resources :business_goals
-        resources :user_stories do
-          resources :acceptance_criteria
-        end
-      end
+  resources :projects do
+    resources :personas, except: [:show, :destroy]
+
+    resources :features do
+      resources :user_stories
     end
   end
 
